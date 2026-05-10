@@ -16,10 +16,17 @@ spec:
     - host: cell.hasslab.pro
       http:
         paths:
+          - path: /api
+            pathType: Prefix
+            backend:
+              service:
+                name: cell-backend
+                port:
+                  number: 80
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: cell-frequency
+                name: cell-frontend
                 port:
                   number: 80

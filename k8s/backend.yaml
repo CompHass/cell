@@ -1,23 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: cell-frequency
+  name: cell-backend
   namespace: cell-frequency
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: cell-frequency
+      app: cell-backend
   template:
     metadata:
       labels:
-        app: cell-frequency
+        app: cell-backend
     spec:
       imagePullSecrets:
         - name: harbor-pull-secret
       containers:
-        - name: cell-frequency
-          image: harbor.hasslab.pro/cell-frequency/cell-frequency:latest
+        - name: cell-backend
+          image: harbor.hasslab.pro/cell/cell-backend:latest
           ports:
             - containerPort: 8000
           env:
@@ -28,9 +28,9 @@ spec:
                   key: DATABASE_URL
           readinessProbe:
             httpGet:
-              path: /
+              path: /api/groups
               port: 8000
-            initialDelaySeconds: 10
+            initialDelaySeconds: 15
             periodSeconds: 10
           resources:
             requests:
@@ -39,3 +39,15 @@ spec:
             limits:
               cpu: "500m"
               memory: "512Mi"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cell-backend
+  namespace: cell-frequency
+spec:
+  selector:
+    app: cell-backend
+  ports:
+    - port: 80
+      targetPort: 8000
