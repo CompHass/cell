@@ -33,3 +33,9 @@
     **Plans:** 2 plans
     - [ ] 07-01-PLAN.md — Create Dockerfile.backend and Dockerfile.frontend
     - [ ] 07-02-PLAN.md — GitHub Actions workflow: build and push both images to Harbor
+- [ ] **Phase 08: etl-cronjob-kubernetes** — Pipeline ETL no Kubernetes (extract + load agendado)
+    **Goal:** Rodar extract.py + migrate_history.py como CronJob Kubernetes diário (meia-noite), usando a imagem do backend e credenciais do Secret cell-secret
+    **Depends on:** Phase 07
+    **Plans:** 2 plans
+    - [x] 08-01-PLAN.md — Adicionar credenciais ETL ao k8s/secret.yaml
+    - [x] 08-02-PLAN.md — Criar k8s/etl-cronjob.yaml (CronJob diário)

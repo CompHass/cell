@@ -9,9 +9,9 @@ See: .planning/PROJECT.md
 ## Current Position
 
 Phase: 08 of 08 (etl-cronjob-kubernetes)
-Plan: 01 — Complete
-Status: 08-01 done — k8s/secret.yaml updated with ETL credentials
-Last activity: 2026-05-09 — Executed 08-01: add ETL credentials to Kubernetes secret
+Plan: 02 — Complete
+Status: 08-02 done — k8s/etl-cronjob.yaml created (CronJob ETL daily at midnight)
+Last activity: 2026-05-09 — Executed 08-02: create Kubernetes CronJob for ETL pipeline
 
 Progress: [██████████] 07-01 done | [█████░░░░░] 07-02 checkpoint
 
