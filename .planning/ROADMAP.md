@@ -27,3 +27,9 @@
     - [ ] 06-01-PLAN.md — Add date/person filter params to FastAPI endpoints
     - [ ] 06-02-PLAN.md — Add filter controls to dashboard HTML/CSS
     - [ ] 06-03-PLAN.md — Wire filter controls to API calls in app.js
+- [ ] **Phase 07: pipeline-build-push-imagens-front-backend** — Pipeline de build e push das imagens do front e backend
+    **Goal:** Build e push de imagens Docker separadas (frontend + backend) para harbor.hasslab.pro via GitHub Actions no push para main
+    **Depends on:**
+    **Plans:** 2 plans
+    - [ ] 07-01-PLAN.md — Create Dockerfile.backend and Dockerfile.frontend
+    - [ ] 07-02-PLAN.md — GitHub Actions workflow: build and push both images to Harbor
