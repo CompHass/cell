@@ -1,0 +1,37 @@
+{
+  "status": 200,
+  "method": "POST",
+  "url": "https://api.celula.in/authenticate",
+  "requestHeaders": {
+    ":authority": "api.celula.in",
+    ":method": "POST",
+    ":path": "/authenticate",
+    ":scheme": "https",
+    "accept": "application/json, text/javascript, */*; q=0.01",
+    "accept-encoding": "gzip, deflate, br, zstd",
+    "content-length": "90",
+    "content-type": "application/json",
+    "origin": "https://app.celula.in",
+    "priority": "u=1, i",
+    "referer": "https://app.celula.in/",
+    "sec-ch-ua": "\"Not:A-Brand\";v=\"99\", \"HeadlessChrome\";v=\"145\", \"Chromium\";v=\"145\"",
+    "sec-ch-ua-mobile": "?0",
+    "sec-ch-ua-platform": "\"Linux\"",
+    "sec-fetch-dest": "empty",
+    "sec-fetch-mode": "cors",
+    "sec-fetch-site": "same-site",
+    "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/145.0.7632.0 Safari/537.36"
+  },
+  "requestPostData": "{\"username\":\"eduardo.hass@edificando.com.br\",\"password\":\"6c9b7846\",\"account\":\"edificando\"}",
+  "responseHeaders": {
+    "access-control-max-age": "86400",
+    "etag": "W/\"11f-orRn2D46bKCvZJRGwmy10MH9RI8\"",
+    "access-control-allow-methods": "OPTIONS, GET, POST, PUT, DELETE, PATCH",
+    "access-control-allow-origin": "https://app.celula.in",
+    "content-length": "287",
+    "date": "Wed, 11 Feb 2026 20:13:53 GMT",
+    "content-type": "application/json; charset=utf-8",
+    "vary": "Accept-Encoding",
+    "access-control-allow-headers": "X-Requested-With, Content-Type, Authorization"
+  }
+}

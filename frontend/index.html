@@ -1,0 +1,1159 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Frequência — Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+  <style>
+    :root {
+      --bg:      #FAFAFA;
+      --surface: #FFFFFF;
+      --fg:      #111111;
+      --muted:   #6B6B6B;
+      --border:  #E5E5E5;
+      --accent:  #2F6FEB;
+      --success: #17A34A;
+      --warn:    #EAB308;
+      --danger:  #DC2626;
+      --radius:  8px;
+      --font:    -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', system-ui, sans-serif;
+      --mono:    'JetBrains Mono', 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--font); background: var(--bg); color: var(--fg); font-size: 14px; line-height: 1.5; min-height: 100vh; }
+
+    /* ── Header ── */
+    .header { background: var(--surface); border-bottom: 1px solid var(--border); padding: 0 24px; height: 56px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 10; }
+    .header__logo { font-size: 15px; font-weight: 600; display: flex; align-items: center; gap: 8px; letter-spacing: -0.01em; }
+    .header__logo svg { color: var(--accent); }
+    .header__meta { font-size: 12px; color: var(--muted); font-family: var(--mono); }
+
+    /* ── Nav tabs ── */
+    .nav-tabs { background: var(--surface); border-bottom: 1px solid var(--border); padding: 0 24px; display: flex; gap: 0; overflow-x: auto; }
+    .nav-tab { height: 44px; padding: 0 16px; border: none; background: none; font-size: 13px; font-family: var(--font); color: var(--muted); cursor: pointer; border-bottom: 2px solid transparent; white-space: nowrap; transition: color 0.12s, border-color 0.12s; }
+    .nav-tab:hover { color: var(--fg); }
+    .nav-tab.active { color: var(--accent); border-bottom-color: var(--accent); font-weight: 500; }
+
+    /* ── Container ── */
+    .container { max-width: 1200px; margin: 0 auto; padding: 32px 24px; }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* ── Filter bar ── */
+    .filter-bar { display: flex; align-items: center; gap: 10px; margin-bottom: 24px; flex-wrap: wrap; }
+    .filter-group { display: flex; align-items: center; gap: 6px; }
+    .filter-bar label { font-size: 12px; font-weight: 500; color: var(--muted); white-space: nowrap; }
+    .filter-bar input[type="date"] { height: 36px; padding: 0 12px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); color: var(--fg); font-size: 13px; font-family: var(--font); min-width: 140px; color-scheme: light; }
+    .filter-bar input[type="date"]:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(47,111,235,0.12); }
+    .filter-sep { width: 1px; height: 24px; background: var(--border); flex-shrink: 0; }
+
+    /* ── Multi-select ── */
+    .ms-wrap { position: relative; }
+    .ms-trigger { height: 36px; padding: 0 32px 0 12px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); color: var(--fg); font-size: 13px; font-family: var(--font); cursor: pointer; display: flex; align-items: center; gap: 6px; white-space: nowrap; min-width: 180px; user-select: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236B6B6B' d='M6 8L1 3h10z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 10px center; transition: border-color 0.15s; }
+    .ms-trigger:hover, .ms-trigger.open { border-color: var(--accent); }
+    .ms-trigger.open { box-shadow: 0 0 0 3px rgba(47,111,235,0.12); }
+    .ms-badge { display: inline-flex; align-items: center; justify-content: center; min-width: 18px; height: 18px; padding: 0 5px; border-radius: 9px; background: var(--accent); color: #fff; font-size: 11px; font-weight: 600; font-family: var(--mono); }
+    .ms-dropdown { position: absolute; top: calc(100% + 4px); left: 0; min-width: 220px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: 0 2px 8px rgba(0,0,0,0.08); z-index: 100; display: none; flex-direction: column; overflow: hidden; }
+    .ms-dropdown.open { display: flex; }
+    .ms-actions { display: flex; gap: 12px; padding: 8px 12px; border-bottom: 1px solid var(--border); }
+    .ms-actions button { background: none; border: none; padding: 0; font-size: 11px; color: var(--accent); cursor: pointer; font-family: var(--font); }
+    .ms-actions button:hover { text-decoration: underline; }
+    .ms-list { max-height: 220px; overflow-y: auto; padding: 4px 0; }
+    .ms-option { display: flex; align-items: center; gap: 8px; padding: 7px 12px; cursor: pointer; font-size: 13px; color: var(--fg); transition: background 0.1s; }
+    .ms-option:hover { background: var(--bg); }
+    .ms-option input[type="checkbox"] { width: 14px; height: 14px; accent-color: var(--accent); cursor: pointer; flex-shrink: 0; }
+
+    .btn-clear { height: 36px; padding: 0 14px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); color: var(--muted); font-size: 12px; font-family: var(--font); cursor: pointer; transition: border-color 0.15s, color 0.15s; white-space: nowrap; }
+    .btn-clear:hover { border-color: var(--fg); color: var(--fg); }
+    .status-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--warn); margin-left: auto; }
+    .status-label { font-size: 12px; color: var(--muted); font-family: var(--mono); }
+
+    /* ── Stats bar ── */
+    .stats-bar { display: flex; gap: 24px; margin-bottom: 24px; padding: 16px 20px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); flex-wrap: wrap; }
+    .stat-item { display: flex; flex-direction: column; gap: 2px; }
+    .stat-item__value { font-size: 22px; font-weight: 600; font-family: var(--mono); letter-spacing: -0.02em; color: var(--fg); }
+    .stat-item__label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; }
+    .stat-item + .stat-item { padding-left: 24px; border-left: 1px solid var(--border); }
+
+    /* ── Charts grid ── */
+    .charts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .chart-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 20px 16px; display: flex; flex-direction: column; gap: 12px; }
+    .chart-card--wide { grid-column: 1 / -1; }
+    .chart-card__header { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+    .chart-card__title { font-size: 13px; font-weight: 600; letter-spacing: -0.005em; }
+    .chart-card__subtitle { font-size: 12px; color: var(--muted); margin-top: 2px; }
+    .chart-card__badge { font-size: 11px; font-family: var(--mono); padding: 2px 8px; border-radius: 4px; background: var(--bg); border: 1px solid var(--border); color: var(--muted); white-space: nowrap; flex-shrink: 0; }
+    .chart-card__canvas-wrap { position: relative; flex: 1; }
+    .chart-type-toggle { display: flex; border: 1px solid var(--border); border-radius: 6px; overflow: hidden; flex-shrink: 0; }
+    .chart-type-btn { height: 28px; padding: 0 10px; border: none; background: var(--surface); color: var(--muted); font-size: 11px; font-family: var(--font); cursor: pointer; transition: background 0.12s, color 0.12s; white-space: nowrap; }
+    .chart-type-btn + .chart-type-btn { border-left: 1px solid var(--border); }
+    .chart-type-btn.active { background: var(--fg); color: var(--surface); }
+    .chart-type-btn:not(.active):hover { background: var(--bg); color: var(--fg); }
+
+    /* ── Loading ── */
+    .loading-overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.85); border-radius: var(--radius); }
+    .spinner { width: 20px; height: 20px; border: 2px solid var(--border); border-top-color: var(--accent); border-radius: 50%; animation: spin 0.6s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .mock-banner { display: flex; align-items: center; gap: 8px; padding: 8px 14px; background: oklch(98% 0.02 80); border: 1px solid oklch(88% 0.06 80); border-radius: var(--radius); font-size: 12px; color: oklch(45% 0.06 65); margin-bottom: 20px; font-family: var(--mono); }
+    .mock-banner::before { content: '⚠'; }
+
+    /* ── Member status table ── */
+    .section-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; gap: 12px; flex-wrap: wrap; }
+    .section-title { font-size: 15px; font-weight: 600; letter-spacing: -0.01em; }
+    .section-sub { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+    .risk-filters { display: flex; gap: 6px; flex-wrap: wrap; }
+    .risk-pill { height: 28px; padding: 0 12px; border-radius: 14px; border: 1px solid var(--border); background: var(--surface); font-size: 12px; font-family: var(--font); cursor: pointer; display: flex; align-items: center; gap: 5px; color: var(--muted); transition: all 0.12s; white-space: nowrap; }
+    .risk-pill.active { border-color: currentColor; }
+    .risk-pill[data-risk="all"].active   { color: var(--fg); background: var(--fg); color: #fff; border-color: var(--fg); }
+    .risk-pill[data-risk="critical"].active { color: var(--danger); background: #fef2f2; border-color: var(--danger); }
+    .risk-pill[data-risk="warning"].active  { color: #92400e; background: #fffbeb; border-color: var(--warn); }
+    .risk-pill[data-risk="new"].active      { color: #1d4ed8; background: #eff6ff; border-color: var(--accent); }
+    .risk-pill[data-risk="ok"].active       { color: #14532d; background: #f0fdf4; border-color: var(--success); }
+
+    .member-table-wrap { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+    .member-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .member-table th { padding: 10px 14px; text-align: left; font-size: 11px; font-weight: 500; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; border-bottom: 1px solid var(--border); background: var(--bg); white-space: nowrap; }
+    .member-table th.sortable { cursor: pointer; user-select: none; }
+    .member-table th.sortable:hover { color: var(--fg); }
+    .member-table th .sort-arrow { margin-left: 4px; opacity: 0.4; }
+    .member-table th.sort-asc .sort-arrow::after  { content: '↑'; opacity: 1; }
+    .member-table th.sort-desc .sort-arrow::after { content: '↓'; opacity: 1; }
+    .member-table th .sort-arrow::after { content: '↕'; }
+    .member-table td { padding: 10px 14px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+    .member-table tr:last-child td { border-bottom: none; }
+    .member-table tr:hover td { background: var(--bg); }
+
+    .risk-badge { display: inline-flex; align-items: center; gap: 4px; font-size: 11px; font-weight: 500; padding: 2px 8px; border-radius: 4px; white-space: nowrap; }
+    .risk-badge--critical { background: #fef2f2; color: var(--danger); }
+    .risk-badge--warning  { background: #fffbeb; color: #92400e; }
+    .risk-badge--new      { background: #eff6ff; color: #1d4ed8; }
+    .risk-badge--ok       { background: #f0fdf4; color: #14532d; }
+
+    .dots-row { display: flex; gap: 4px; align-items: center; }
+    .dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+    .dot--present { background: var(--success); }
+    .dot--absent  { background: var(--danger); opacity: 0.55; }
+    .dot--none    { background: var(--border); }
+
+    .streak-badge { font-family: var(--mono); font-size: 12px; font-weight: 600; }
+    .streak-badge--pos { color: var(--success); }
+    .streak-badge--neg { color: var(--danger); }
+    .streak-badge--zero { color: var(--muted); }
+
+    .rate-bar-wrap { display: flex; align-items: center; gap: 8px; }
+    .rate-bar { height: 6px; border-radius: 3px; background: var(--border); overflow: hidden; width: 60px; flex-shrink: 0; }
+    .rate-bar__fill { height: 100%; border-radius: 3px; transition: width 0.3s; }
+    .rate-val { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+
+    .qual-badge { font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 4px; white-space: nowrap; }
+    .qual-badge--yes { background: #f0fdf4; color: #14532d; }
+    .qual-badge--no  { background: var(--bg); color: var(--muted); border: 1px solid var(--border); }
+    .qual-progress { font-size: 12px; color: var(--muted); font-family: var(--mono); }
+
+    /* ── Alert cards (sumiu / nunca veio) ── */
+    .alert-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
+    .alert-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+    .alert-card__head { padding: 14px 16px 12px; border-bottom: 1px solid var(--border); display: flex; align-items: flex-start; justify-content: space-between; }
+    .alert-card__title { font-size: 13px; font-weight: 600; }
+    .alert-card__sub { font-size: 12px; color: var(--muted); margin-top: 2px; }
+    .alert-card__count { font-size: 22px; font-weight: 700; font-family: var(--mono); }
+    .alert-card__count--danger { color: var(--danger); }
+    .alert-card__count--warn   { color: #92400e; }
+    .alert-card__list { list-style: none; }
+    .alert-card__item { display: flex; align-items: center; justify-content: space-between; padding: 9px 16px; border-bottom: 1px solid var(--border); font-size: 13px; gap: 8px; }
+
+    /* ── Heatmap ── */
+    .hm-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+    .hm-table th { text-align: center; padding: 6px 8px; font-family: var(--mono); font-size: 11px; color: var(--muted); border-bottom: 2px solid var(--border); }
+    .hm-table th:first-child { text-align: left; }
+    .hm-table td { text-align: center; padding: 5px 2px; border-bottom: 1px solid var(--border); }
+    .hm-table td:first-child { text-align: left; font-weight: 500; max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .hm-cell { display: inline-block; width: 44px; height: 26px; line-height: 26px; border-radius: 4px; font-family: var(--mono); font-size: 11px; font-weight: 600; }
+    .hm-nodata { display: inline-block; width: 44px; height: 26px; line-height: 26px; border-radius: 4px; font-family: var(--mono); font-size: 11px; color: var(--muted); background: var(--bg); }
+    .hm-legend { display: flex; align-items: center; gap: 6px; margin-top: 8px; font-size: 11px; color: var(--muted); }
+    .hm-legend-bar { width: 100px; height: 10px; border-radius: 5px; background: linear-gradient(to right, #ef4444, #f59e0b, #eab308, #84cc16, #22c55e); }
+    .alert-card__item:last-child { border-bottom: none; }
+    .alert-card__name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .alert-card__meta { font-size: 11px; color: var(--muted); font-family: var(--mono); white-space: nowrap; }
+    .alert-card__empty { padding: 20px 16px; font-size: 13px; color: var(--muted); text-align: center; }
+
+    /* ── Qualification panel ── */
+    .qual-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px; }
+    .qual-section { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+    .qual-section__head { padding: 12px 16px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
+    .qual-section__title { font-size: 13px; font-weight: 600; }
+    .qual-section__badge { font-size: 11px; font-family: var(--mono); padding: 2px 8px; border-radius: 4px; background: var(--bg); border: 1px solid var(--border); color: var(--muted); }
+    .qual-section__list { list-style: none; max-height: 320px; overflow-y: auto; }
+    .qual-item { display: flex; align-items: center; gap: 10px; padding: 9px 16px; border-bottom: 1px solid var(--border); font-size: 13px; }
+    .qual-item:last-child { border-bottom: none; }
+    .qual-item__name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .qual-item__streak { font-family: var(--mono); font-size: 12px; font-weight: 600; white-space: nowrap; }
+    .progress-dots { display: flex; gap: 3px; }
+    .progress-dot { width: 9px; height: 9px; border-radius: 50%; }
+    .progress-dot--filled { background: var(--accent); }
+    .progress-dot--empty  { background: var(--border); }
+
+    .weeks-input-wrap { display: flex; align-items: center; gap: 6px; }
+    .weeks-input { width: 48px; height: 30px; padding: 0 8px; border: 1px solid var(--border); border-radius: var(--radius); font-size: 13px; font-family: var(--mono); text-align: center; color: var(--fg); background: var(--surface); }
+    .weeks-input:focus { outline: none; border-color: var(--accent); }
+
+    @media (max-width: 768px) {
+      .charts-grid, .alert-grid, .qual-grid { grid-template-columns: 1fr; }
+      .chart-card--wide { grid-column: 1; }
+      .container { padding: 20px 16px; }
+      .header, .nav-tabs { padding: 0 16px; }
+      .stats-bar { gap: 12px; }
+      .stat-item + .stat-item { border-left: none; padding-left: 0; }
+      .filter-sep { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header__logo">
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+      <rect x="1" y="9" width="4" height="8" rx="1" fill="currentColor"/>
+      <rect x="7" y="5" width="4" height="12" rx="1" fill="currentColor"/>
+      <rect x="13" y="1" width="4" height="16" rx="1" fill="currentColor"/>
+    </svg>
+    Frequência
+  </div>
+  <span class="header__meta" id="header-meta">v1.0</span>
+</header>
+
+<nav class="nav-tabs">
+  <button class="nav-tab active" data-tab="overview">Visão geral</button>
+  <button class="nav-tab" data-tab="members">Participantes</button>
+  <button class="nav-tab" data-tab="qualification">Qualificação 3×</button>
+  <button class="nav-tab" data-tab="alerts">Alertas</button>
+</nav>
+
+<main class="container">
+
+  <div class="mock-banner" id="mock-banner" style="display:none">
+    mock data — API não detectada. Conecte o backend FastAPI para dados reais.
+  </div>
+
+  <!-- ── Shared filter bar ── -->
+  <div class="filter-bar" id="filter-bar">
+    <div class="filter-group">
+      <label>Turma</label>
+      <div class="ms-wrap" id="group-ms-wrap">
+        <div class="ms-trigger" id="group-ms-trigger" tabindex="0" role="button" aria-haspopup="listbox" aria-expanded="false">
+          <span id="group-ms-label">Todas as turmas</span>
+        </div>
+        <div class="ms-dropdown" id="group-ms-dropdown" role="listbox">
+          <div class="ms-actions">
+            <button type="button" id="group-ms-select-all">Selecionar todas</button>
+            <button type="button" id="group-ms-clear-sel">Limpar</button>
+          </div>
+          <div class="ms-list" id="group-ms-list"></div>
+        </div>
+      </div>
+    </div>
+    <div class="filter-sep"></div>
+    <div class="filter-group">
+      <label for="date-from">De</label>
+      <input type="date" id="date-from" />
+    </div>
+    <div class="filter-group">
+      <label for="date-to">Até</label>
+      <input type="date" id="date-to" />
+    </div>
+    <button class="btn-clear" id="btn-clear" type="button">Limpar</button>
+    <div class="filter-sep"></div>
+    <div class="filter-group">
+      <label>Pessoa</label>
+      <div class="ms-wrap" id="person-ms-wrap">
+        <div class="ms-trigger" id="person-ms-trigger" tabindex="0" role="button" aria-haspopup="listbox" aria-expanded="false">
+          <span id="person-ms-label">Todas as pessoas</span>
+        </div>
+        <div class="ms-dropdown" id="person-ms-dropdown" role="listbox" style="min-width:260px;max-height:320px">
+          <div class="ms-actions">
+            <button type="button" id="person-ms-select-all">Selecionar todas</button>
+            <button type="button" id="person-ms-clear-sel">Limpar</button>
+          </div>
+          <div style="padding:6px 10px;border-bottom:1px solid var(--border)">
+            <input type="text" id="person-ms-search" placeholder="Buscar…" style="width:100%;height:28px;padding:0 8px;border:1px solid var(--border);border-radius:4px;font-size:12px;font-family:var(--font);background:var(--bg);color:var(--fg)" />
+          </div>
+          <div class="ms-list" id="person-ms-list" style="max-height:220px"></div>
+        </div>
+      </div>
+    </div>
+    <span class="status-dot" id="status-dot"></span>
+    <span class="status-label" id="last-updated">–</span>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       TAB: VISÃO GERAL
+  ══════════════════════════════════════════ -->
+  <div class="tab-panel active" id="tab-overview">
+    <div class="stats-bar">
+      <div class="stat-item">
+        <span class="stat-item__value" id="stat-total">–</span>
+        <span class="stat-item__label">Participantes</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-item__value" id="stat-avg-presence">–</span>
+        <span class="stat-item__label">Presença média</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-item__value" id="stat-weeks">–</span>
+        <span class="stat-item__label">Semanas</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-item__value" id="stat-critical" style="color:var(--danger)">–</span>
+        <span class="stat-item__label">Em risco</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-item__value" id="stat-qualified" style="color:var(--success)">–</span>
+        <span class="stat-item__label">Qualificados 3×</span>
+      </div>
+    </div>
+
+    <div class="charts-grid">
+      <div class="chart-card">
+        <div class="chart-card__header">
+          <div><div class="chart-card__title">Top Ausentes</div><div class="chart-card__subtitle">Mais faltas no período</div></div>
+          <span class="chart-card__badge">Top 10</span>
+        </div>
+        <div class="chart-card__canvas-wrap" style="height:280px">
+          <canvas id="topAbsentChart"></canvas>
+          <div class="loading-overlay" id="loading-absent"><div class="spinner"></div></div>
+        </div>
+      </div>
+      <div class="chart-card">
+        <div class="chart-card__header">
+          <div><div class="chart-card__title">Top Presentes</div><div class="chart-card__subtitle">Mais presenças no período</div></div>
+          <span class="chart-card__badge">Top 10</span>
+        </div>
+        <div class="chart-card__canvas-wrap" style="height:280px">
+          <canvas id="topPresentChart"></canvas>
+          <div class="loading-overlay" id="loading-present"><div class="spinner"></div></div>
+        </div>
+      </div>
+      <div class="chart-card chart-card--wide">
+        <div class="chart-card__header">
+          <div><div class="chart-card__title">Tendência por Semana do Mês</div><div class="chart-card__subtitle">% média de presença na 1ª, 2ª, 3ª e 4ª semana</div></div>
+        </div>
+        <div class="chart-card__canvas-wrap" style="height:200px">
+          <canvas id="trendChart"></canvas>
+          <div class="loading-overlay" id="loading-trend"><div class="spinner"></div></div>
+        </div>
+      </div>
+      <div class="chart-card chart-card--wide">
+        <div class="chart-card__header">
+          <div><div class="chart-card__title">Presença × Ausência por Semana</div><div class="chart-card__subtitle">Comparativo semanal</div></div>
+          <div style="display:flex;gap:8px;flex-shrink:0">
+            <div class="chart-type-toggle">
+              <button class="chart-type-btn active" data-mode="bar"     type="button">Barras</button>
+              <button class="chart-type-btn"        data-mode="line"    type="button">Linha</button>
+              <button class="chart-type-btn"        data-mode="stacked" type="button">100%</button>
+            </div>
+          </div>
+        </div>
+        <div class="chart-card__canvas-wrap" style="height:220px">
+          <canvas id="attendanceByWeekChart"></canvas>
+          <div class="loading-overlay" id="loading-week"><div class="spinner"></div></div>
+        </div>
+      </div>
+      <div class="chart-card chart-card--wide">
+        <div class="chart-card__header">
+          <div><div class="chart-card__title">Presença por Pessoa × Semana do Mês</div><div class="chart-card__subtitle">Taxa de presença individual em cada semana do mês</div></div>
+        </div>
+        <div style="max-height:520px;overflow-y:auto" id="heatmap-container">
+          <div class="loading-overlay" id="loading-heatmap" style="position:relative;min-height:120px"><div class="spinner"></div></div>
+        </div>
+        <div class="hm-legend"><span>0%</span><div class="hm-legend-bar"></div><span>100%</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       TAB: PARTICIPANTES
+  ══════════════════════════════════════════ -->
+  <div class="tab-panel" id="tab-members">
+    <div class="section-header">
+      <div>
+        <div class="section-title">Todos os participantes</div>
+        <div class="section-sub">Ordenado por risco. Clique no cabeçalho para ordenar.</div>
+      </div>
+      <div class="risk-filters">
+        <button class="risk-pill active" data-risk="all">Todos <span id="count-all" style="font-family:var(--mono);font-size:11px"></span></button>
+        <button class="risk-pill" data-risk="critical">🔴 Crítico <span id="count-critical" style="font-family:var(--mono);font-size:11px"></span></button>
+        <button class="risk-pill" data-risk="warning">🟡 Atenção <span id="count-warning" style="font-family:var(--mono);font-size:11px"></span></button>
+        <button class="risk-pill" data-risk="new">🆕 Novo <span id="count-new" style="font-family:var(--mono);font-size:11px"></span></button>
+        <button class="risk-pill" data-risk="ok">🟢 Regular <span id="count-ok" style="font-family:var(--mono);font-size:11px"></span></button>
+      </div>
+    </div>
+    <div class="member-table-wrap" id="loading-members" style="padding:40px;text-align:center">
+      <div class="spinner" style="margin:0 auto"></div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       TAB: QUALIFICAÇÃO 3×
+  ══════════════════════════════════════════ -->
+  <div class="tab-panel" id="tab-qualification">
+    <div class="section-header">
+      <div>
+        <div class="section-title">Qualificação — 3 presenças consecutivas</div>
+        <div class="section-sub">Requisito para participar de atividades avançadas.</div>
+      </div>
+    </div>
+    <div class="qual-grid" id="qual-grid">
+      <div style="grid-column:1/-1;padding:40px;text-align:center"><div class="spinner" style="margin:0 auto"></div></div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       TAB: ALERTAS
+  ══════════════════════════════════════════ -->
+  <div class="tab-panel" id="tab-alerts">
+    <div class="section-header">
+      <div>
+        <div class="section-title">Alertas de acompanhamento</div>
+        <div class="section-sub">Ação imediata — quem ligar esta semana.</div>
+      </div>
+      <div class="weeks-input-wrap">
+        <label style="font-size:12px;color:var(--muted)">Sumiu há mais de</label>
+        <input type="number" class="weeks-input" id="gone-weeks" value="3" min="1" max="20" />
+        <label style="font-size:12px;color:var(--muted)">encontros</label>
+        <div style="width:1px;height:20px;background:var(--border);margin:0 6px"></div>
+        <label style="font-size:12px;color:var(--muted)">Alerta após</label>
+        <input type="number" class="weeks-input" id="alert-threshold" value="3" min="1" max="10" />
+        <label style="font-size:12px;color:var(--muted)">faltas · Inativo após</label>
+        <input type="number" class="weeks-input" id="inactive-threshold" value="5" min="2" max="20" />
+        <label style="font-size:12px;color:var(--muted)">faltas</label>
+      </div>
+    </div>
+    <div class="alert-grid" id="alert-grid">
+      <div style="grid-column:1/-1;padding:40px;text-align:center"><div class="spinner" style="margin:0 auto"></div></div>
+    </div>
+  </div>
+
+</main>
+
+<script>
+Chart.register(ChartDataLabels);
+
+// ── State ────────────────────────────────────────────────────────────
+let isMock = false;
+let weekChartMode = 'bar';
+let lastWeekData  = null;
+let totalMembersCount = 0;
+let memberStatusData  = [];
+let activeRiskFilter  = 'all';
+let memberSortCol     = 'risk';
+let memberSortDir     = 'asc';
+const charts = { absent: null, week: null, present: null, trend: null };
+
+const COLOR = { accent:'#2F6FEB', danger:'#DC2626', success:'#17A34A', warn:'#EAB308', muted:'#6B6B6B', border:'#E5E5E5' };
+Chart.defaults.font.family = "-apple-system, BlinkMacSystemFont, 'Inter', system-ui, sans-serif";
+Chart.defaults.plugins.datalabels = { display: false };
+
+// ── Mock data ─────────────────────────────────────────────────────────
+const MOCK_PEOPLE = [
+  { id:'1',  name:'Ana Paula',    absences:9,  presences:3,  weeks:[1,0,1,0], streak:-2, best_streak:2, rate:0.25, risk:'critical', qualified:false, consecutive_now:0, dots:['present','absent','present','absent'], first_seen:'2024-01-10', last_seen:'2024-03-20', total:12 },
+  { id:'2',  name:'Bruno Lima',   absences:8,  presences:4,  weeks:[0,1,1,0], streak:2,  best_streak:3, rate:0.33, risk:'warning',  qualified:true,  consecutive_now:2, dots:['absent','present','present','absent'], first_seen:'2024-01-10', last_seen:'2024-03-27', total:12 },
+  { id:'3',  name:'Carla Dias',   absences:2,  presences:10, weeks:[1,1,1,1], streak:4,  best_streak:6, rate:0.83, risk:'ok',       qualified:true,  consecutive_now:4, dots:['present','present','present','present'],first_seen:'2024-01-10', last_seen:'2024-03-27', total:12 },
+  { id:'4',  name:'Diego Mota',   absences:7,  presences:3,  weeks:[0,0,1,1], streak:-3, best_streak:2, rate:0.30, risk:'critical', qualified:false, consecutive_now:0, dots:['absent','absent','present','present'],  first_seen:'2024-01-10', last_seen:'2024-03-20', total:10 },
+  { id:'5',  name:'Elisa Nunes',  absences:1,  presences:2,  weeks:[1,0,0,1], streak:1,  best_streak:2, rate:0.67, risk:'new',      qualified:false, consecutive_now:1, dots:['none','none','absent','present'],       first_seen:'2024-03-13', last_seen:'2024-03-27', total:3  },
+  { id:'6',  name:'Fábio Rocha',  absences:5,  presences:7,  weeks:[0,1,0,1], streak:1,  best_streak:3, rate:0.58, risk:'ok',       qualified:true,  consecutive_now:1, dots:['absent','present','absent','present'],  first_seen:'2024-01-10', last_seen:'2024-03-27', total:12 },
+  { id:'7',  name:'Gabi Teles',   absences:4,  presences:8,  weeks:[1,1,1,0], streak:-1, best_streak:4, rate:0.67, risk:'ok',       qualified:true,  consecutive_now:0, dots:['present','present','present','absent'], first_seen:'2024-01-10', last_seen:'2024-03-20', total:12 },
+  { id:'8',  name:'Hugo Alves',   absences:3,  presences:9,  weeks:[1,1,1,1], streak:4,  best_streak:5, rate:0.75, risk:'ok',       qualified:true,  consecutive_now:4, dots:['present','present','present','present'],first_seen:'2024-01-10', last_seen:'2024-03-27', total:12 },
+  { id:'9',  name:'Iara Sousa',   absences:2,  presences:1,  weeks:[1,1,0,1], streak:-1, best_streak:1, rate:0.33, risk:'new',      qualified:false, consecutive_now:0, dots:['none','none','none','present'],         first_seen:'2024-03-27', last_seen:'2024-03-27', total:1  },
+  { id:'10', name:'Jonas Freire', absences:1,  presences:11, weeks:[0,1,1,1], streak:3,  best_streak:7, rate:0.92, risk:'ok',       qualified:true,  consecutive_now:3, dots:['absent','present','present','present'], first_seen:'2024-01-10', last_seen:'2024-03-27', total:12 },
+];
+const MOCK_GROUPS = [{ id:'g1', name:'Turma A — Manhã' }, { id:'g2', name:'Turma B — Tarde' }];
+const MOCK = {
+  groups:  MOCK_GROUPS,
+  persons: MOCK_PEOPLE.map(p => ({ id: p.id, name: p.name })),
+  topAbsent:  () => ({ items: [...MOCK_PEOPLE].sort((a,b) => b.absences  - a.absences ).slice(0,10).map(p => ({ name:p.name, count:p.absences  })) }),
+  topPresent: () => ({ items: [...MOCK_PEOPLE].sort((a,b) => b.presences - a.presences).slice(0,10).map(p => ({ name:p.name, count:p.presences })) }),
+  attendanceByWeek: () => {
+    const weeks = ['Sem 1','Sem 2','Sem 3','Sem 4'];
+    return { weeks, present: weeks.map((_,i) => MOCK_PEOPLE.filter(p=>p.weeks[i]===1).length), absent: weeks.map((_,i) => MOCK_PEOPLE.filter(p=>p.weeks[i]===0).length) };
+  },
+  memberStatus: () => MOCK_PEOPLE,
+  goneSilent:   () => [
+    { id:'11', name:'Pedro Camargo', last_seen:'2024-02-14', absent_streak:6, total_present:5 },
+    { id:'12', name:'Renata Souza',  last_seen:'2024-02-28', absent_streak:4, total_present:3 },
+  ],
+  neverAttended: () => [],
+};
+
+// ── API ───────────────────────────────────────────────────────────────
+async function apiFetch(url, mockFb) {
+  try {
+    const r = await fetch(url, { signal: AbortSignal.timeout(4000) });
+    if (!r.ok) throw new Error(r.status);
+    isMock = false;
+    return r.json();
+  } catch {
+    isMock = true;
+    return mockFb();
+  }
+}
+
+function buildQs(extra = {}) {
+  const qs = new URLSearchParams();
+  getSelectedGroupIds().forEach(id => qs.append('group_id', id));
+  getSelectedPersonIds().forEach(id => qs.append('person_id', id));
+  const df = document.getElementById('date-from').value;
+  const dt = document.getElementById('date-to').value;
+  if (df) qs.set('date_from', df);
+  if (dt) qs.set('date_to',   dt);
+  Object.entries(extra).forEach(([k,v]) => qs.set(k, v));
+  return qs.toString() ? '?' + qs : '';
+}
+
+// ── Charts (overview) ─────────────────────────────────────────────────
+function renderTopAbsent(data) {
+  const items = data.items || data;
+  const labels = items.map(i => i.name);
+  const values = items.map(i => i.count ?? i.absences);
+  if (charts.absent) charts.absent.destroy();
+  charts.absent = new Chart(document.getElementById('topAbsentChart'), {
+    type: 'bar',
+    data: { labels, datasets: [{ label:'Faltas', data:values, backgroundColor:values.map(v=>v>=7?COLOR.danger+'cc':COLOR.warn+'cc'), borderColor:values.map(v=>v>=7?COLOR.danger:COLOR.warn), borderWidth:1, borderRadius:4, barPercentage:0.65 }] },
+    options: { indexAxis:'y', responsive:true, maintainAspectRatio:false, plugins:{ legend:{display:false}, tooltip:{callbacks:{label:ctx=>` ${ctx.parsed.x} falta${ctx.parsed.x!==1?'s':''}`}}, datalabels:{display:false} }, scales:{ x:{grid:{color:COLOR.border},ticks:{precision:0,font:{family:"'JetBrains Mono',ui-monospace,monospace",size:11}}}, y:{grid:{display:false},ticks:{font:{size:12}}} } },
+  });
+}
+
+function renderTopPresent(data) {
+  const items = data.items || data;
+  const labels = items.map(i => i.name);
+  const values = items.map(i => i.count ?? i.presences);
+  const max = Math.max(...values);
+  if (charts.present) charts.present.destroy();
+  charts.present = new Chart(document.getElementById('topPresentChart'), {
+    type: 'bar',
+    data: { labels, datasets: [{ label:'Presenças', data:values, backgroundColor:values.map(v=>v===max?COLOR.accent+'cc':COLOR.accent+'55'), borderColor:values.map(v=>v===max?COLOR.accent:COLOR.accent+'99'), borderWidth:1, borderRadius:4, barPercentage:0.65 }] },
+    options: { indexAxis:'y', responsive:true, maintainAspectRatio:false, plugins:{ legend:{display:false}, tooltip:{callbacks:{label:ctx=>` ${ctx.parsed.x} presença${ctx.parsed.x!==1?'s':''}`}}, datalabels:{display:false} }, scales:{ x:{grid:{color:COLOR.border},ticks:{precision:0,font:{family:"'JetBrains Mono',ui-monospace,monospace",size:11}}}, y:{grid:{display:false},ticks:{font:{size:12}}} } },
+  });
+}
+
+function renderTrend(data) {
+  const labels = data.labels || [];
+  const rates  = data.rates  || [];
+  const counts = data.counts || [];
+  if (charts.trend) charts.trend.destroy();
+  const avg = rates.length ? Math.round(rates.reduce((a,b)=>a+b,0)/rates.filter(r=>r>0).length) : 0;
+  charts.trend = new Chart(document.getElementById('trendChart'), {
+    type: 'bar',
+    data: {
+      labels,
+      datasets: [{
+        label: '% presença',
+        data: rates,
+        backgroundColor: rates.map(r => r >= avg ? COLOR.success + 'cc' : COLOR.danger + 'cc'),
+        borderColor:     rates.map(r => r >= avg ? COLOR.success : COLOR.danger),
+        borderWidth: 2,
+        borderRadius: 6,
+        barPercentage: 0.55,
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: { callbacks: { label: ctx => ` ${ctx.parsed.y}% (${counts[ctx.dataIndex]} encontros)` } },
+        datalabels: {
+          anchor: 'end', align: 'top', offset: 4,
+          font: { family: "'JetBrains Mono',ui-monospace,monospace", size: 13, weight: '700' },
+          color: ctx => rates[ctx.dataIndex] >= avg ? COLOR.success : COLOR.danger,
+          formatter: v => v + '%',
+        },
+        annotation: {
+          annotations: {
+            avgLine: {
+              type: 'line', yMin: avg, yMax: avg,
+              borderColor: COLOR.muted, borderWidth: 1, borderDash: [4,4],
+              label: { content: `média ${avg}%`, display: true, position: 'end',
+                       font: { size: 11 }, color: COLOR.muted, backgroundColor: 'transparent' }
+            }
+          }
+        }
+      },
+      scales: {
+        x: { grid: { display: false } },
+        y: {
+          min: 0, max: 100,
+          grid: { color: COLOR.border },
+          ticks: { callback: v => v + '%', font: { family: "'JetBrains Mono',ui-monospace,monospace", size: 11 } }
+        }
+      }
+    }
+  });
+}
+
+function renderAttendanceByWeek(data) {
+  lastWeekData = data;
+  const labels  = data.weeks   || [];
+  const present = data.present || [];
+  const absent  = data.absent  || [];
+  if (charts.week) charts.week.destroy();
+  const dsP = { label:'Presentes', data:present, borderColor:COLOR.success, backgroundColor:COLOR.success+'bb', borderWidth:2 };
+  const dsA = { label:'Ausentes',  data:absent,  borderColor:COLOR.danger,  backgroundColor:COLOR.danger+'bb',  borderWidth:2 };
+  let type, options;
+  if (weekChartMode === 'line') {
+    type = 'line';
+    [dsP,dsA].forEach(d => { d.fill=false; d.tension=0.35; d.pointRadius=4; d.pointHoverRadius=6; });
+    options = { responsive:true, maintainAspectRatio:false, plugins:{ legend:{position:'top',align:'end',labels:{boxWidth:10,boxHeight:10,padding:16}}, datalabels:{anchor:'end',align:'top',offset:2,font:{family:"'JetBrains Mono',ui-monospace,monospace",size:11,weight:'600'},color:ctx=>ctx.datasetIndex===0?COLOR.success:COLOR.danger,formatter:v=>v} }, scales:{ x:{grid:{display:false}}, y:{grid:{color:COLOR.border},beginAtZero:true,ticks:{precision:0,font:{family:"'JetBrains Mono',ui-monospace,monospace",size:11}}} } };
+  } else if (weekChartMode === 'stacked') {
+    type = 'bar';
+    const totals = labels.map((_,i)=>(present[i]||0)+(absent[i]||0));
+    const pct = arr => arr.map((v,i)=>totals[i]>0?Math.round((v/totals[i])*100):0);
+    dsP.data=pct(present); dsP.borderRadius=4; dsP.barPercentage=0.65;
+    dsA.data=pct(absent);  dsA.borderRadius=4; dsA.barPercentage=0.65;
+    options = { responsive:true, maintainAspectRatio:false, plugins:{ legend:{position:'top',align:'end',labels:{boxWidth:10,boxHeight:10,padding:16}}, tooltip:{callbacks:{label:ctx=>` ${ctx.parsed.y}%`}}, datalabels:{anchor:'center',align:'center',font:{family:"'JetBrains Mono',ui-monospace,monospace",size:11,weight:'600'},color:'#fff',formatter:v=>v>8?v+'%':''} }, scales:{ x:{stacked:true,grid:{display:false}}, y:{stacked:true,max:100,grid:{color:COLOR.border},ticks:{callback:v=>v+'%',font:{family:"'JetBrains Mono',ui-monospace,monospace",size:11}}} } };
+  } else {
+    type = 'bar';
+    dsP.borderRadius=4; dsP.barPercentage=0.55;
+    dsA.borderRadius=4; dsA.barPercentage=0.55;
+    options = { responsive:true, maintainAspectRatio:false, plugins:{ legend:{position:'top',align:'end',labels:{boxWidth:10,boxHeight:10,padding:16}}, datalabels:{anchor:'end',align:'top',offset:2,font:{family:"'JetBrains Mono',ui-monospace,monospace",size:11,weight:'600'},color:ctx=>ctx.datasetIndex===0?COLOR.success:COLOR.danger,formatter:v=>v} }, scales:{ x:{grid:{display:false}}, y:{grid:{color:COLOR.border},ticks:{precision:0,font:{family:"'JetBrains Mono',ui-monospace,monospace",size:11}}} } };
+  }
+  charts.week = new Chart(document.getElementById('attendanceByWeekChart'), { type, data:{ labels, datasets:[dsP,dsA] }, options });
+}
+
+function hcolor(rate) {
+  if (rate == null) return 'transparent';
+  if (rate >= 80) return '#22c55e';
+  if (rate >= 65) return '#84cc16';
+  if (rate >= 50) return '#eab308';
+  if (rate >= 35) return '#f59e0b';
+  return '#ef4444';
+}
+
+function renderHeatmap(data) {
+  const labels = data.labels || [];
+  const persons = data.persons || [];
+  const el = document.getElementById('heatmap-container');
+  if (!persons.length) {
+    el.innerHTML = '<div style="text-align:center;padding:24px;color:var(--muted)">Nenhum dado.</div>';
+    return;
+  }
+  let html = '<table class="hm-table"><thead><tr><th></th>';
+  labels.forEach(l => html += `<th>${l}</th>`);
+  html += '</tr></thead><tbody>';
+  persons.forEach(p => {
+    html += `<tr><td title="${p.name}">${p.name}</td>`;
+    p.weeks.forEach(r => {
+      if (r == null) html += `<td><span class="hm-nodata">–</span></td>`;
+      else html += `<td><span class="hm-cell" style="background:${hcolor(r)};color:#fff">${Math.round(r)}%</span></td>`;
+    });
+    html += '</tr>';
+  });
+  html += '</tbody></table>';
+  el.innerHTML = html;
+}
+
+function showLoading(on) {
+  ['absent','present','week','trend','heatmap'].forEach(id => {
+    const el = document.getElementById(`loading-${id}`);
+    if (el) el.style.display = on ? 'flex' : 'none';
+  });
+}
+
+function updateTimestamp() {
+  const el = document.getElementById('last-updated');
+  if (el) el.textContent = `atualizado ${new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'})}`;
+}
+
+async function loadOverview() {
+  showLoading(true);
+  const qs = buildQs();
+  const [absent, week, present, trend, heatmap] = await Promise.all([
+    apiFetch(`/api/top-absent${qs}`,         () => MOCK.topAbsent()),
+    apiFetch(`/api/attendance-by-week${qs}`, () => MOCK.attendanceByWeek()),
+    apiFetch(`/api/top-present${qs}`,        () => MOCK.topPresent()),
+    apiFetch(`/api/attendance-trend${qs}`,   () => ({ labels:["1ª semana","2ª semana","3ª semana","4ª semana"], rates:[0,0,0,0], counts:[0,0,0,0] })),
+    apiFetch(`/api/person-week-heatmap${qs}`,() => ({ persons:[], labels:[] })),
+  ]);
+  renderTopAbsent(absent);
+  renderAttendanceByWeek(week);
+  renderTopPresent(present);
+  renderTrend(trend);
+  renderHeatmap(heatmap);
+  const wp = week.present || [];
+  const wa = week.absent  || [];
+  const tp = wp.reduce((a,b)=>a+b,0), ta = wa.reduce((a,b)=>a+b,0);
+  const avg = tp+ta > 0 ? Math.round((tp/(tp+ta))*100) : 0;
+  document.getElementById('stat-avg-presence').textContent = tp+ta>0 ? `${avg}%` : '–';
+  document.getElementById('stat-weeks').textContent = wp.length || '–';
+  updateTimestamp();
+  showLoading(false);
+  document.getElementById('status-dot').style.background = isMock ? COLOR.warn : COLOR.success;
+  document.getElementById('mock-banner').style.display   = isMock ? 'flex' : 'none';
+}
+
+// ── Member status table ───────────────────────────────────────────────
+const RISK_LABEL = { critical:'🔴 Crítico', warning:'🟡 Atenção', new:'🆕 Novo', ok:'🟢 Regular', inactive:'⚫ Inativo' };
+
+function riskBadge(risk) {
+  return `<span class="risk-badge risk-badge--${risk}">${RISK_LABEL[risk]||risk}</span>`;
+}
+
+function dotsHtml(dots) {
+  return '<div class="dots-row">' + dots.map(d => `<span class="dot dot--${d}" title="${d}"></span>`).join('') + '</div>';
+}
+
+function streakHtml(s) {
+  if (s > 0) return `<span class="streak-badge streak-badge--pos">+${s} ✓</span>`;
+  if (s < 0) return `<span class="streak-badge streak-badge--neg">${s} ✗</span>`;
+  return `<span class="streak-badge streak-badge--zero">0</span>`;
+}
+
+function rateHtml(rate) {
+  const pct = Math.round(rate * 100);
+  const color = rate >= 0.7 ? COLOR.success : rate >= 0.5 ? COLOR.warn : COLOR.danger;
+  return `<div class="rate-bar-wrap"><div class="rate-bar"><div class="rate-bar__fill" style="width:${pct}%;background:${color}"></div></div><span class="rate-val">${pct}%</span></div>`;
+}
+
+function qualHtml(m) {
+  if (m.qualified) return `<span class="qual-badge qual-badge--yes">Qualificado</span>`;
+  if (m.consecutive_now > 0) return `<span class="qual-progress">${m.consecutive_now}/3</span>`;
+  return `<span class="qual-badge qual-badge--no">–</span>`;
+}
+
+function renderMemberTable(data, riskFilter, sortCol, sortDir) {
+  let rows = riskFilter === 'all' ? data : data.filter(m => m.risk === riskFilter);
+
+  const riskVal = { critical:0, warning:1, new:2, ok:3 };
+  rows = [...rows].sort((a, b) => {
+    let av, bv;
+    if (sortCol === 'risk')   { av = riskVal[a.risk]||9; bv = riskVal[b.risk]||9; }
+    else if (sortCol === 'name')     { av = a.name; bv = b.name; }
+    else if (sortCol === 'rate')     { av = a.rate; bv = b.rate; }
+    else if (sortCol === 'streak')   { av = a.streak; bv = b.streak; }
+    else if (sortCol === 'present')  { av = a.present; bv = b.present; }
+    else if (sortCol === 'absent')   { av = a.absent; bv = b.absent; }
+    else if (sortCol === 'qualified'){ av = a.qualified?0:1; bv = b.qualified?0:1; }
+    else { av = a.name; bv = b.name; }
+    if (av < bv) return sortDir === 'asc' ? -1 : 1;
+    if (av > bv) return sortDir === 'asc' ? 1 : -1;
+    return a.name.localeCompare(b.name);
+  });
+
+  const arrow = col => `<span class="sort-arrow"></span>`;
+  const th = (col, label, extra='') =>
+    `<th class="sortable${sortCol===col?' sort-'+sortDir:''}" data-col="${col}" ${extra}>${label}${arrow(col)}</th>`;
+
+  const html = `
+    <table class="member-table">
+      <thead><tr>
+        ${th('risk','Status')}
+        ${th('name','Nome')}
+        <th>Últimas 4</th>
+        ${th('streak','Sequência')}
+        ${th('rate','% Presença')}
+        ${th('present','P',' title="Presenças"')}
+        ${th('absent','F',' title="Faltas"')}
+        ${th('qualified','Qualif.')}
+        <th>1ª vez</th>
+      </tr></thead>
+      <tbody>
+        ${rows.length === 0 ? `<tr><td colspan="9" style="text-align:center;padding:24px;color:var(--muted)">Nenhum participante nesta categoria.</td></tr>` :
+          rows.map(m => `
+            <tr>
+              <td>${riskBadge(m.risk)}</td>
+              <td style="font-weight:500">${m.name}</td>
+              <td>${dotsHtml(m.dots)}</td>
+              <td>${streakHtml(m.streak)}</td>
+              <td>${rateHtml(m.rate)}</td>
+              <td style="font-family:var(--mono);font-size:12px;color:var(--success)">${m.present}</td>
+              <td style="font-family:var(--mono);font-size:12px;color:var(--danger)">${m.absent}</td>
+              <td>${qualHtml(m)}</td>
+              <td style="font-size:11px;color:var(--muted);font-family:var(--mono)">${m.first_seen||'–'}</td>
+            </tr>`).join('')}
+      </tbody>
+    </table>`;
+
+  const wrap = document.getElementById('loading-members');
+  wrap.id = 'member-table-container';
+  wrap.className = 'member-table-wrap';
+  wrap.innerHTML = html;
+
+  // Sort click
+  wrap.querySelectorAll('th.sortable').forEach(th => {
+    th.addEventListener('click', () => {
+      const col = th.dataset.col;
+      if (memberSortCol === col) {
+        memberSortDir = memberSortDir === 'asc' ? 'desc' : 'asc';
+      } else {
+        memberSortCol = col;
+        memberSortDir = 'asc';
+      }
+      renderMemberTable(memberStatusData, activeRiskFilter, memberSortCol, memberSortDir);
+    });
+  });
+}
+
+async function loadMemberStatus() {
+  const inactiveThreshold = parseInt(document.getElementById('inactive-threshold')?.value) || 5;
+  const qs = buildQs({ inactive_threshold: inactiveThreshold });
+  const data = await apiFetch(`/api/member-status${qs}`, () => MOCK.memberStatus());
+  memberStatusData = data;
+  const activeData = data.filter(m => !m.inactive);
+  totalMembersCount = activeData.length;
+  document.getElementById('stat-total').textContent = totalMembersCount || '–';
+
+  const counts = { critical:0, warning:0, new:0, ok:0 };
+  activeData.forEach(m => { if (counts[m.risk] !== undefined) counts[m.risk]++; });
+  document.getElementById('count-all').textContent      = activeData.length;
+  document.getElementById('count-critical').textContent = counts.critical;
+  document.getElementById('count-warning').textContent  = counts.warning;
+  document.getElementById('count-new').textContent      = counts.new;
+  document.getElementById('count-ok').textContent       = counts.ok;
+  document.getElementById('stat-critical').textContent  = counts.critical + counts.warning;
+  document.getElementById('stat-qualified').textContent = activeData.filter(m => m.qualified).length;
+
+  renderMemberTable(activeData, activeRiskFilter, memberSortCol, memberSortDir);
+}
+
+// ── Qualification panel ───────────────────────────────────────────────
+async function loadQualification() {
+  const inactiveThreshold = parseInt(document.getElementById('inactive-threshold')?.value) || 5;
+  const qs = buildQs({ inactive_threshold: inactiveThreshold });
+  const data = await apiFetch(`/api/member-status${qs}`, () => MOCK.memberStatus());
+  const activeData = data.filter(m => !m.inactive);
+  const memberData = activeData.filter(m => m.is_member);
+
+  const qualified  = memberData.filter(m => m.qualified);
+  const inProgress = memberData.filter(m => !m.qualified && m.consecutive_now > 0).sort((a,b) => b.consecutive_now - a.consecutive_now);
+  const notYet     = memberData.filter(m => !m.qualified && m.consecutive_now === 0);
+
+  function section(title, color, items, renderItem) {
+    return `
+      <div class="qual-section">
+        <div class="qual-section__head">
+          <div class="qual-section__title" style="color:${color}">${title}</div>
+          <span class="qual-section__badge">${items.length}</span>
+        </div>
+        <ul class="qual-section__list">
+          ${items.length === 0 ? `<li style="padding:20px 16px;text-align:center;font-size:13px;color:var(--muted)">Nenhum</li>` :
+            items.map(renderItem).join('')}
+        </ul>
+      </div>`;
+  }
+
+  const qualifiedHtml = section('✅ Qualificados', COLOR.success, qualified, m =>
+    `<li class="qual-item">
+       <span class="qual-item__name">${m.name}</span>
+       <span class="qual-item__streak" style="color:var(--success)">Melhor: ${m.best_streak}×</span>
+       <span style="font-size:11px;color:var(--muted);font-family:var(--mono)">${Math.round(m.rate*100)}%</span>
+     </li>`);
+
+  const progressHtml = section('⏳ Em progresso', COLOR.accent, inProgress, m => {
+    const dots = [1,2,3].map(i =>
+      `<span class="progress-dot ${i <= m.consecutive_now ? 'progress-dot--filled' : 'progress-dot--empty'}"></span>`
+    ).join('');
+    return `<li class="qual-item">
+       <span class="qual-item__name">${m.name}</span>
+       <div class="progress-dots">${dots}</div>
+       <span class="qual-item__streak" style="color:var(--accent)">${m.consecutive_now}/3</span>
+     </li>`;
+  });
+
+  const notYetHtml = section('❌ Não qualificados', COLOR.muted, notYet, m =>
+    `<li class="qual-item">
+       <span class="qual-item__name">${m.name}</span>
+       <span style="font-size:11px;color:var(--muted);font-family:var(--mono)">${Math.round(m.rate*100)}%</span>
+     </li>`);
+
+  document.getElementById('qual-grid').innerHTML = qualifiedHtml + progressHtml + notYetHtml;
+}
+
+// ── Alerts panel ─────────────────────────────────────────────────────
+async function loadAlerts() {
+  const weeks            = parseInt(document.getElementById('gone-weeks').value) || 3;
+  const alertThreshold   = parseInt(document.getElementById('alert-threshold').value) || 3;
+  const inactiveThreshold = parseInt(document.getElementById('inactive-threshold').value) || 5;
+  const qs      = buildQs({ weeks });
+  const qsRisk  = buildQs({ alert_threshold: alertThreshold, inactive_threshold: inactiveThreshold });
+
+  const [gone, atRisk, dropouts] = await Promise.all([
+    apiFetch(`/api/gone-silent${qs}`,  () => MOCK.goneSilent()),
+    apiFetch(`/api/at-risk${qsRisk}`,  () => []),
+    apiFetch(`/api/dropouts${buildQs()}`, () => []),
+  ]);
+
+  function alertCard(title, sub, countEl, countClass, items, renderItem, emptyMsg) {
+    const count = items.length;
+    return `
+      <div class="alert-card">
+        <div class="alert-card__head">
+          <div><div class="alert-card__title">${title}</div><div class="alert-card__sub">${sub}</div></div>
+          <span class="alert-card__count ${countClass}">${count}</span>
+        </div>
+        ${count === 0
+          ? `<div class="alert-card__empty">${emptyMsg}</div>`
+          : `<ul class="alert-card__list">${items.slice(0,15).map(renderItem).join('')}</ul>`}
+      </div>`;
+  }
+
+  const goneHtml = alertCard(
+    '📵 Sumiu', `Não veio nos últimos ${weeks} encontros`, null, 'alert-card__count--danger',
+    gone,
+    m => `<li class="alert-card__item">
+            <span class="alert-card__name">${m.name}</span>
+            <span class="alert-card__meta">${m.absent_streak}× falta · visto ${m.last_seen}</span>
+          </li>`,
+    'Ninguém sumiu. 🎉'
+  );
+
+  const atRiskHtml = alertCard(
+    `⚠️ Atenção — ${alertThreshold}+ faltas seguidas`,
+    `Ainda ativos mas precisam de contato (${alertThreshold}–${inactiveThreshold - 1} faltas consecutivas)`,
+    null, 'alert-card__count--warn',
+    atRisk,
+    m => `<li class="alert-card__item">
+            <span class="alert-card__name">${m.name}</span>
+            <span class="alert-card__meta">${m.absent_streak}× falta · visto ${m.last_seen}</span>
+          </li>`,
+    'Ninguém nesta faixa. 👍'
+  );
+
+  const dropoutsHtml = alertCard(
+    '🚪 Desistentes',
+    '5+ faltas consecutivas nos últimos 3 meses (membros deixando de participar)',
+    null, 'alert-card__count--danger',
+    dropouts,
+    m => `<li class="alert-card__item">
+            <span class="alert-card__name">${m.name}</span>
+            <span class="alert-card__meta">${m.dropout_streak}× falta seguida · última vez ${m.last_seen || '—'}</span>
+          </li>`,
+    'Nenhum desistente. 🙌'
+  );
+
+  document.getElementById('alert-grid').innerHTML = dropoutsHtml + atRiskHtml + goneHtml;
+}
+
+// ── Groups loader ─────────────────────────────────────────────────────
+async function loadGroups() {
+  const data   = await apiFetch('/api/groups', () => MOCK.groups);
+  const groups = Array.isArray(data) ? data : (data.groups || []);
+  const list   = document.getElementById('group-ms-list');
+  groups.forEach(g => {
+    const row = document.createElement('label');
+    row.className = 'ms-option';
+    row.innerHTML = `<input type="checkbox" value="${g.id}" />${g.name}`;
+    row.querySelector('input').addEventListener('change', () => { updateGroupLabel(); loadPersons(); refreshAll(); });
+    list.appendChild(row);
+  });
+  document.getElementById('group-ms-select-all').addEventListener('click', () => {
+    list.querySelectorAll('input').forEach(cb => cb.checked = true);
+    updateGroupLabel(); loadPersons(); refreshAll();
+  });
+  document.getElementById('group-ms-clear-sel').addEventListener('click', () => {
+    list.querySelectorAll('input').forEach(cb => cb.checked = false);
+    updateGroupLabel(); loadPersons(); refreshAll();
+  });
+}
+
+// ── Persons loader ─────────────────────────────────────────────────────
+let _personListenersInit = false;
+async function loadPersons() {
+  const groupIds = getSelectedGroupIds();
+  const qs = groupIds.map(id => `group_id=${id}`).join('&');
+  const url = '/api/members' + (qs ? '?' + qs : '');
+  const persons = await apiFetch(url, () => []);
+  const list    = document.getElementById('person-ms-list');
+  // preserve checked ids across reload
+  const prevChecked = new Set(getSelectedPersonIds());
+  list.innerHTML = '';
+  persons.forEach(p => {
+    const row = document.createElement('label');
+    row.className = 'ms-option';
+    row.innerHTML = `<input type="checkbox" value="${p.id}" />${p.name}`;
+    if (prevChecked.has(p.id)) row.querySelector('input').checked = true;
+    row.querySelector('input').addEventListener('change', () => { updatePersonLabel(); refreshAll(); });
+    list.appendChild(row);
+  });
+  updatePersonLabel();
+  if (!_personListenersInit) {
+    _personListenersInit = true;
+    document.getElementById('person-ms-select-all').addEventListener('click', () => {
+      list.querySelectorAll('.ms-option:not([style*="display:none"]) input').forEach(cb => cb.checked = true);
+      updatePersonLabel(); refreshAll();
+    });
+    document.getElementById('person-ms-clear-sel').addEventListener('click', () => {
+      list.querySelectorAll('input').forEach(cb => cb.checked = false);
+      updatePersonLabel(); refreshAll();
+    });
+    document.getElementById('person-ms-search').addEventListener('input', e => {
+      const q = e.target.value.toLowerCase();
+      list.querySelectorAll('.ms-option').forEach(row => {
+        row.style.display = row.textContent.toLowerCase().includes(q) ? '' : 'none';
+      });
+    });
+  }
+}
+
+function getSelectedGroupIds() {
+  return Array.from(document.querySelectorAll('#group-ms-list input:checked')).map(el => el.value);
+}
+
+function getSelectedPersonIds() {
+  return Array.from(document.querySelectorAll('#person-ms-list input:checked')).map(el => el.value);
+}
+
+function updateGroupLabel() {
+  const checked = getSelectedGroupIds();
+  const label   = document.getElementById('group-ms-label');
+  const trigger = document.getElementById('group-ms-trigger');
+  trigger.querySelector('.ms-badge')?.remove();
+  if (checked.length === 0) { label.textContent = 'Todas as turmas'; }
+  else if (checked.length === 1) {
+    const name = document.querySelector(`#group-ms-list input[value="${checked[0]}"]`)?.closest('.ms-option')?.textContent?.trim();
+    label.textContent = name || '1 turma';
+  } else {
+    label.textContent = `${checked.length} turmas`;
+    const badge = document.createElement('span'); badge.className = 'ms-badge'; badge.textContent = checked.length;
+    label.after(badge);
+  }
+}
+
+function updatePersonLabel() {
+  const checked = getSelectedPersonIds();
+  const label   = document.getElementById('person-ms-label');
+  const trigger = document.getElementById('person-ms-trigger');
+  trigger.querySelector('.ms-badge')?.remove();
+  if (checked.length === 0) { label.textContent = 'Todas as pessoas'; }
+  else if (checked.length === 1) {
+    const name = document.querySelector(`#person-ms-list input[value="${checked[0]}"]`)?.closest('.ms-option')?.textContent?.trim();
+    label.textContent = name || '1 pessoa';
+  } else {
+    label.textContent = `${checked.length} pessoas`;
+    const badge = document.createElement('span'); badge.className = 'ms-badge'; badge.textContent = checked.length;
+    label.after(badge);
+  }
+}
+
+function initMultiSelect() {
+  function bind(wrapId, triggerId, dropdownId) {
+    const wrap = document.getElementById(wrapId);
+    const trigger = document.getElementById(triggerId);
+    const dropdown = document.getElementById(dropdownId);
+    trigger.addEventListener('click', () => {
+      document.querySelectorAll('.ms-dropdown.open').forEach(d => { if(d!==dropdown){d.classList.remove('open');d.previousElementSibling?.classList.remove('open');} });
+      const open = dropdown.classList.toggle('open');
+      trigger.classList.toggle('open', open);
+      trigger.setAttribute('aria-expanded', open);
+    });
+    document.addEventListener('click', e => {
+      if (!wrap.contains(e.target)) { dropdown.classList.remove('open'); trigger.classList.remove('open'); trigger.setAttribute('aria-expanded','false'); }
+    });
+  }
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.ms-dropdown.open').forEach(d => d.classList.remove('open'));
+      document.querySelectorAll('.ms-trigger.open').forEach(t => { t.classList.remove('open'); t.setAttribute('aria-expanded','false'); });
+    }
+  });
+  bind('group-ms-wrap','group-ms-trigger','group-ms-dropdown');
+  bind('person-ms-wrap','person-ms-trigger','person-ms-dropdown');
+}
+
+// ── Tab system ────────────────────────────────────────────────────────
+const tabLoaded = { overview:false, members:false, qualification:false, alerts:false };
+
+function switchTab(name) {
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.toggle('active', t.dataset.tab === name));
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.toggle('active', p.id === `tab-${name}`));
+  if (!tabLoaded[name]) {
+    tabLoaded[name] = true;
+    loadTab(name);
+  }
+}
+
+function loadTab(name) {
+  if (name === 'overview')       return loadOverview();
+  if (name === 'members')        return loadMemberStatus();
+  if (name === 'qualification')  return loadQualification();
+  if (name === 'alerts')         return loadAlerts();
+}
+
+async function refreshAll() {
+  // Reset loaded state so all tabs reload with new filters
+  Object.keys(tabLoaded).forEach(k => tabLoaded[k] = false);
+  const activeTab = document.querySelector('.nav-tab.active')?.dataset?.tab || 'overview';
+  tabLoaded[activeTab] = true;
+  await loadTab(activeTab);
+}
+
+// ── Risk filter pills ──────────────────────────────────────────────────
+function initRiskPills() {
+  document.querySelectorAll('.risk-pill').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.risk-pill').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      activeRiskFilter = btn.dataset.risk;
+      renderMemberTable(memberStatusData, activeRiskFilter, memberSortCol, memberSortDir);
+    });
+  });
+}
+
+// ── Init ──────────────────────────────────────────────────────────────
+(async function init() {
+  document.querySelectorAll('.nav-tab').forEach(t => {
+    t.addEventListener('click', () => switchTab(t.dataset.tab));
+  });
+  document.getElementById('date-from').addEventListener('change', refreshAll);
+  document.getElementById('date-to').addEventListener('change',   refreshAll);
+  let personSearchTimer;
+  document.getElementById('person-ms-search').addEventListener('input', () => {
+    clearTimeout(personSearchTimer);
+    personSearchTimer = setTimeout(refreshAll, 400);
+  });
+  document.getElementById('btn-clear').addEventListener('click', () => {
+    document.querySelectorAll('#group-ms-list input').forEach(cb => cb.checked = false);
+    updateGroupLabel();
+    document.querySelectorAll('#person-ms-list input').forEach(cb => cb.checked = false);
+    updatePersonLabel();
+    document.getElementById('date-from').value = '';
+    document.getElementById('date-to').value   = '';
+    document.getElementById('person-ms-search').value = '';
+    refreshAll();
+  });
+  document.getElementById('gone-weeks').addEventListener('change', () => {
+    if (tabLoaded.alerts) loadAlerts();
+  });
+  document.getElementById('alert-threshold').addEventListener('change', () => {
+    if (tabLoaded.alerts) loadAlerts();
+  });
+  document.getElementById('inactive-threshold').addEventListener('change', () => {
+    tabLoaded.participants   = false;
+    tabLoaded.qualification  = false;
+    tabLoaded.alerts         = false;
+    refreshAll();
+  });
+  document.querySelectorAll('.chart-type-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.chart-type-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      weekChartMode = btn.dataset.mode;
+      if (lastWeekData) renderAttendanceByWeek(lastWeekData);
+    });
+  });
+
+  initMultiSelect();
+  initRiskPills();
+  await loadGroups();
+  await loadPersons();
+
+  // Load first tab
+  tabLoaded.overview = true;
+  await loadOverview();
+  // Load member count for stats bar without blocking
+  loadMemberStatus().catch(() => {});
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+[
+  {
+    "url": "https://app.celula.in/login?u=eduardo.hass%40edificando.com.br",
+    "title": "célula.in",
+    "inputCount": 1,
+    "inputs": [
+      {
+        "name": "username",
+        "id": "ember6",
+        "type": "email",
+        "placeholder": "Enter your e-mail",
+        "autocomplete": null
+      }
+    ]
+  },
+  {
+    "url": "https://js.stripe.com/v2/m/outer.html#referrer=&title=c%C3%A9lula.in&url=https%3A%2F%2Fapp.celula.in%2F&muid=NA&sid=NA&version=6&preview=false&",
+    "title": "StripeM-Outer",
+    "inputCount": 0,
+    "inputs": []
+  },
+  {
+    "url": "https://m.stripe.network/inner.html#referrer=&title=c%C3%A9lula.in&url=https%3A%2F%2Fapp.celula.in%2F&muid=NA&sid=NA&version=6&preview=false&",
+    "title": "StripeM-Inner",
+    "inputCount": 0,
+    "inputs": []
+  },
+  {
+    "url": "https://js.stripe.com/v2/channel.html?stripe_xdm_e=https%3A%2F%2Fapp.celula.in&stripe_xdm_c=default851530&stripe_xdm_p=1#__stripe_transport__",
+    "title": "Stripe Internal Communication Channel",
+    "inputCount": 0,
+    "inputs": []
+  }
+]

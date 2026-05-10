@@ -1,0 +1,13 @@
+{
+  "name": "cell-frequency-playwright-lab",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "capture:network": "node scripts/capture-network.mjs",
+    "extract:attendance": "node scripts/extract-attendance.mjs"
+  },
+  "dependencies": {
+    "playwright": "^1.51.0"
+  }
+}

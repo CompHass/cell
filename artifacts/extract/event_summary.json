@@ -1,0 +1,1402 @@
+[
+  {
+    "event_id": "61f3e505578b3700190c6063",
+    "event_date": "2022-01-27T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 9,
+    "absentees_inferred_count": 0,
+    "people_total": 9,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "62064d7bf880b20013812e51",
+    "event_date": "2022-02-03T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 8,
+    "absentees_inferred_count": 5,
+    "people_total": 13,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "62064dc94b47d100123f6d67",
+    "event_date": "2022-02-10T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 6,
+    "absentees_inferred_count": 7,
+    "people_total": 13,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "62178dc0f880b20013818a14",
+    "event_date": "2022-02-17T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 8,
+    "absentees_inferred_count": 7,
+    "people_total": 15,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "621f4e4298eea100198bb495",
+    "event_date": "2022-02-24T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 16,
+    "absentees_inferred_count": 2,
+    "people_total": 18,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "6225f35d2f853a0019c279b3",
+    "event_date": "2022-03-03T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 12,
+    "absentees_inferred_count": 6,
+    "people_total": 18,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "622f230518dfd4001233f9c9",
+    "event_date": "2022-03-10T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 15,
+    "absentees_inferred_count": 3,
+    "people_total": 18,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "62444ad87aacc500126cfa6d",
+    "event_date": "2022-03-17T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 9,
+    "absentees_inferred_count": 9,
+    "people_total": 18,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "62444a6e3350120012552629",
+    "event_date": "2022-03-24T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 13,
+    "absentees_inferred_count": 5,
+    "people_total": 18,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "6267135e7aacc50012c8fb1d",
+    "event_date": "2022-04-14T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 14,
+    "absentees_inferred_count": 4,
+    "people_total": 18,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "626712b67aacc50012c8f607",
+    "event_date": "2022-04-21T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 16,
+    "absentees_inferred_count": 5,
+    "people_total": 21,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "628299642bd31f00199fa4ad",
+    "event_date": "2022-04-28T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 15,
+    "absentees_inferred_count": 5,
+    "people_total": 20,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "628299072bd31f00199fa209",
+    "event_date": "2022-05-05T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 15,
+    "absentees_inferred_count": 5,
+    "people_total": 20,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "62829842e0cf6a001272a027",
+    "event_date": "2022-05-12T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 13,
+    "absentees_inferred_count": 5,
+    "people_total": 18,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "628e4d9e2bd31f0019c940c4",
+    "event_date": "2022-05-19T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 15,
+    "absentees_inferred_count": 3,
+    "people_total": 18,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "629682910b8e00001990c2ea",
+    "event_date": "2022-05-26T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 8,
+    "absentees_inferred_count": 10,
+    "people_total": 18,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "62a9dfed1732d7001329b0b1",
+    "event_date": "2022-06-02T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 15,
+    "absentees_inferred_count": 6,
+    "people_total": 21,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "62a9e0616d627500123fbc0e",
+    "event_date": "2022-06-09T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 16,
+    "absentees_inferred_count": 5,
+    "people_total": 21,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "62bd78bf1732d700135f1393",
+    "event_date": "2022-06-16T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 17,
+    "absentees_inferred_count": 6,
+    "people_total": 23,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "62bd79446d627500127539e5",
+    "event_date": "2022-06-23T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 19,
+    "absentees_inferred_count": 4,
+    "people_total": 23,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "62da8b1b82c9b80019d8e543",
+    "event_date": "2022-07-07T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 15,
+    "absentees_inferred_count": 10,
+    "people_total": 25,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "62da8ace5cd13100192f8e0a",
+    "event_date": "2022-07-14T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 17,
+    "absentees_inferred_count": 8,
+    "people_total": 25,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "62da8a735cd13100192f8c6e",
+    "event_date": "2022-07-21T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 13,
+    "absentees_inferred_count": 14,
+    "people_total": 27,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "64fa41597a18a6001aac579e",
+    "event_date": "2023-09-07T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 10,
+    "absentees_inferred_count": 8,
+    "people_total": 18,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "6505dc1df567a7001300bfc3",
+    "event_date": "2023-09-14T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 2,
+    "absentees_inferred_count": 16,
+    "people_total": 18,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "6511d595ee2a910019ec90f3",
+    "event_date": "2023-09-21T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 8,
+    "absentees_inferred_count": 8,
+    "people_total": 16,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "65c5348debe9a2001357690f",
+    "event_date": "2024-02-01T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 11,
+    "absentees_inferred_count": 8,
+    "people_total": 19,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "65c604326df6d000136fc059",
+    "event_date": "2024-02-08T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 11,
+    "absentees_inferred_count": 6,
+    "people_total": 17,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "65d37225e1c8250013ae34fd",
+    "event_date": "2024-02-15T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 9,
+    "absentees_inferred_count": 11,
+    "people_total": 20,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "65e0fd1f4b08db0012569cfc",
+    "event_date": "2024-02-22T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 11,
+    "absentees_inferred_count": 7,
+    "people_total": 18,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "65e1a085819b57001352e8ae",
+    "event_date": "2024-02-29T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 9,
+    "absentees_inferred_count": 11,
+    "people_total": 20,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "65eb42f9b830dd0013cdc876",
+    "event_date": "2024-03-07T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 16,
+    "absentees_inferred_count": 6,
+    "people_total": 22,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "65f432eaa6d2f80013beacb4",
+    "event_date": "2024-03-14T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 13,
+    "absentees_inferred_count": 9,
+    "people_total": 22,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "6605603f55992b0013224585",
+    "event_date": "2024-03-21T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 10,
+    "absentees_inferred_count": 14,
+    "people_total": 24,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "660d25aebcd768001267669d",
+    "event_date": "2024-03-28T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 8,
+    "absentees_inferred_count": 16,
+    "people_total": 24,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "660fe83bbcd768001293f65d",
+    "event_date": "2024-04-04T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 14,
+    "absentees_inferred_count": 9,
+    "people_total": 23,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "661c507749e67d001341c0ae",
+    "event_date": "2024-04-11T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 10,
+    "absentees_inferred_count": 13,
+    "people_total": 23,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "66226bfc1e8dc2001260a76e",
+    "event_date": "2024-04-18T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 12,
+    "absentees_inferred_count": 11,
+    "people_total": 23,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "662c0b88d3314d0013e96b1c",
+    "event_date": "2024-04-25T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 7,
+    "absentees_inferred_count": 14,
+    "people_total": 21,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "663cdc7ceedfec00130c7d3e",
+    "event_date": "2024-05-02T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 16,
+    "absentees_inferred_count": 4,
+    "people_total": 20,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "663dee7aae7c45001372a13e",
+    "event_date": "2024-05-09T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 10,
+    "absentees_inferred_count": 10,
+    "people_total": 20,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "66599e7baa8490001304a6a0",
+    "event_date": "2024-05-16T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 7,
+    "absentees_inferred_count": 13,
+    "people_total": 20,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "66574091e974400013aa6c59",
+    "event_date": "2024-05-23T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 0,
+    "absentees_inferred_count": 20,
+    "people_total": 20,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "66599e107092cf00134c16f8",
+    "event_date": "2024-05-29T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 12,
+    "absentees_inferred_count": 8,
+    "people_total": 20,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "6662ef12fe4bb20012fa6b26",
+    "event_date": "2024-06-06T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 17,
+    "absentees_inferred_count": 4,
+    "people_total": 21,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "666ce1b438642a00128b84f4",
+    "event_date": "2024-06-13T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 16,
+    "absentees_inferred_count": 5,
+    "people_total": 21,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "6675883038642a0012affe63",
+    "event_date": "2024-06-20T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 15,
+    "absentees_inferred_count": 6,
+    "people_total": 21,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "667ed54960a8b80012207f3f",
+    "event_date": "2024-06-27T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 16,
+    "absentees_inferred_count": 6,
+    "people_total": 22,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "669806c2c0e3d0001335abdd",
+    "event_date": "2024-07-04T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 14,
+    "absentees_inferred_count": 8,
+    "people_total": 22,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "669807f2607c1f001368cfac",
+    "event_date": "2024-07-12T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 7,
+    "absentees_inferred_count": 15,
+    "people_total": 22,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "669a643dcd4df90013fe793c",
+    "event_date": "2024-07-18T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 9,
+    "absentees_inferred_count": 13,
+    "people_total": 22,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "66a37beb8162a90013c5e2e0",
+    "event_date": "2024-07-25T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 14,
+    "absentees_inferred_count": 11,
+    "people_total": 25,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "66acb2f6a85ada001319fe8a",
+    "event_date": "2024-08-01T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 18,
+    "absentees_inferred_count": 5,
+    "people_total": 23,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "66b61d00cd4df9001372ae9a",
+    "event_date": "2024-08-08T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 12,
+    "absentees_inferred_count": 11,
+    "people_total": 23,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "66bf560d5c531a0012c6788a",
+    "event_date": "2024-08-15T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 11,
+    "absentees_inferred_count": 11,
+    "people_total": 22,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "66c8528c3488cd0012d39975",
+    "event_date": "2024-08-22T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 13,
+    "absentees_inferred_count": 9,
+    "people_total": 22,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "66dae46f668daf00128bf895",
+    "event_date": "2024-09-05T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 14,
+    "absentees_inferred_count": 9,
+    "people_total": 23,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "66e4497c32223100148c71a1",
+    "event_date": "2024-09-12T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 15,
+    "absentees_inferred_count": 8,
+    "people_total": 23,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "66fb0faf9aa9880012e0e40e",
+    "event_date": "2024-09-19T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 9,
+    "absentees_inferred_count": 13,
+    "people_total": 22,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "66fb0ff772a3c200128ddb87",
+    "event_date": "2024-09-26T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 6,
+    "absentees_inferred_count": 16,
+    "people_total": 22,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "66ffb4cf72a3c20012a652b8",
+    "event_date": "2024-10-03T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 14,
+    "absentees_inferred_count": 6,
+    "people_total": 20,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "670914f87e20930012739480",
+    "event_date": "2024-10-10T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 16,
+    "absentees_inferred_count": 4,
+    "people_total": 20,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "671bd48824c66500138167f2",
+    "event_date": "2024-10-24T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 21,
+    "absentees_inferred_count": 2,
+    "people_total": 23,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "672371aaf7fc7f001226796f",
+    "event_date": "2024-10-31T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 9,
+    "absentees_inferred_count": 14,
+    "people_total": 23,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "672e67679082df00136727e6",
+    "event_date": "2024-11-07T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 14,
+    "absentees_inferred_count": 9,
+    "people_total": 23,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "6738a4e91391520013014dbf",
+    "event_date": "2024-11-14T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 13,
+    "absentees_inferred_count": 10,
+    "people_total": 23,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "6746f8731391520013401180",
+    "event_date": "2024-11-21T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 10,
+    "absentees_inferred_count": 13,
+    "people_total": 23,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "6749bd0eb332240013abaa3c",
+    "event_date": "2024-11-28T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 10,
+    "absentees_inferred_count": 13,
+    "people_total": 23,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "67589471a5f9410012a8293d",
+    "event_date": "2024-12-05T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 20,
+    "absentees_inferred_count": 3,
+    "people_total": 23,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "67aa96a3740f1d001225d12a",
+    "event_date": "2025-02-06T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 16,
+    "absentees_inferred_count": 6,
+    "people_total": 22,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "67af215634f3d50013525595",
+    "event_date": "2025-02-13T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 22,
+    "absentees_inferred_count": 1,
+    "people_total": 23,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "67cb10b7eb2a8000134d9682",
+    "event_date": "2025-02-20T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 0,
+    "absentees_inferred_count": 23,
+    "people_total": 23,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "67cb10993cb5520013903763",
+    "event_date": "2025-02-27T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 19,
+    "absentees_inferred_count": 4,
+    "people_total": 23,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "67cb102deb2a8000134d9495",
+    "event_date": "2025-03-06T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 11,
+    "absentees_inferred_count": 12,
+    "people_total": 23,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "67d43c7e44b87c00132d2363",
+    "event_date": "2025-03-13T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 18,
+    "absentees_inferred_count": 5,
+    "people_total": 23,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "67e5b4d45820870013af9ba6",
+    "event_date": "2025-03-20T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 18,
+    "absentees_inferred_count": 5,
+    "people_total": 23,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "67e6a0af5820870013b9a7a3",
+    "event_date": "2025-03-27T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 16,
+    "absentees_inferred_count": 8,
+    "people_total": 24,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "67f03ebf075a400012a285d4",
+    "event_date": "2025-04-03T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 13,
+    "absentees_inferred_count": 11,
+    "people_total": 24,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "68098fdbab64fb001370e783",
+    "event_date": "2025-04-10T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 20,
+    "absentees_inferred_count": 3,
+    "people_total": 23,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "6809907930c4170013bf3598",
+    "event_date": "2025-04-17T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 7,
+    "absentees_inferred_count": 16,
+    "people_total": 23,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "6813ddddab64fb0013c8c71f",
+    "event_date": "2025-04-24T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 12,
+    "absentees_inferred_count": 13,
+    "people_total": 25,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "682e42ccb6685a0012850e50",
+    "event_date": "2025-05-01T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 12,
+    "absentees_inferred_count": 13,
+    "people_total": 25,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "682e43b5e66fdf001381d92e",
+    "event_date": "2025-05-08T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 10,
+    "absentees_inferred_count": 17,
+    "people_total": 27,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "682e43fe7ba0cf0013225416",
+    "event_date": "2025-05-15T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 20,
+    "absentees_inferred_count": 7,
+    "people_total": 27,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "682fd510dbe60b0014f7d3de",
+    "event_date": "2025-05-22T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 10,
+    "absentees_inferred_count": 16,
+    "people_total": 26,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "683deaefe2e9a40013e49eb5",
+    "event_date": "2025-05-29T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 18,
+    "absentees_inferred_count": 10,
+    "people_total": 28,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "68776777be6d620012ab6531",
+    "event_date": "2025-06-05T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 11,
+    "absentees_inferred_count": 16,
+    "people_total": 27,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "687767b583c1c10012956393",
+    "event_date": "2025-06-12T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 0,
+    "absentees_inferred_count": 27,
+    "people_total": 27,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "6877666abe6d620012ab6252",
+    "event_date": "2025-06-22T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 27,
+    "absentees_inferred_count": 0,
+    "people_total": 27,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "6877661d6d802f001257472b",
+    "event_date": "2025-06-26T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 9,
+    "absentees_inferred_count": 18,
+    "people_total": 27,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "687766d783c1c10012956249",
+    "event_date": "2025-07-03T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 9,
+    "absentees_inferred_count": 18,
+    "people_total": 27,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "68776793be6d620012ab656e",
+    "event_date": "2025-07-10T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 0,
+    "absentees_inferred_count": 27,
+    "people_total": 27,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "688240fab639790013a31bc2",
+    "event_date": "2025-07-17T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 0,
+    "absentees_inferred_count": 27,
+    "people_total": 27,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "688cdc53bdc3bc0012c09004",
+    "event_date": "2025-07-24T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 20,
+    "absentees_inferred_count": 7,
+    "people_total": 27,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "688cdc7abdc3bc0012c0911c",
+    "event_date": "2025-07-31T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 13,
+    "absentees_inferred_count": 14,
+    "people_total": 27,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "689603b2a8877c0013db6d62",
+    "event_date": "2025-08-07T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 10,
+    "absentees_inferred_count": 17,
+    "people_total": 27,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "68b99b7bb4f8c700126d3735",
+    "event_date": "2025-08-14T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 14,
+    "absentees_inferred_count": 13,
+    "people_total": 27,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "68b99b1cb4f8c700126d367f",
+    "event_date": "2025-08-21T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 0,
+    "absentees_inferred_count": 27,
+    "people_total": 27,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "68b99af5794bdc0012957491",
+    "event_date": "2025-08-28T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 0,
+    "absentees_inferred_count": 27,
+    "people_total": 27,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "68b99c90794bdc0012957a34",
+    "event_date": "2025-09-04T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 14,
+    "absentees_inferred_count": 14,
+    "people_total": 28,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "68c7437e7aef7400134b8591",
+    "event_date": "2025-09-11T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 16,
+    "absentees_inferred_count": 12,
+    "people_total": 28,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "68cd7db731f03b0014f1f945",
+    "event_date": "2025-09-18T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 20,
+    "absentees_inferred_count": 8,
+    "people_total": 28,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "68defd6e3c41b500126a0a9e",
+    "event_date": "2025-09-25T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 0,
+    "absentees_inferred_count": 28,
+    "people_total": 28,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "68e0450a3c41b500127f51aa",
+    "event_date": "2025-10-02T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 17,
+    "absentees_inferred_count": 11,
+    "people_total": 28,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "68e95de69564a3001405d187",
+    "event_date": "2025-10-09T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 14,
+    "absentees_inferred_count": 12,
+    "people_total": 26,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "68f5686ad844ca001324d0d7",
+    "event_date": "2025-10-16T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 17,
+    "absentees_inferred_count": 9,
+    "people_total": 26,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "68ffd13e71e7350012d557e7",
+    "event_date": "2025-10-23T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 12,
+    "absentees_inferred_count": 14,
+    "people_total": 26,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "6904a0c376e83a0012dc7f26",
+    "event_date": "2025-10-30T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 17,
+    "absentees_inferred_count": 9,
+    "people_total": 26,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "690e04d40518390013cebfb5",
+    "event_date": "2025-11-06T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 16,
+    "absentees_inferred_count": 8,
+    "people_total": 24,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "6916f3e8142750001216349a",
+    "event_date": "2025-11-13T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 17,
+    "absentees_inferred_count": 7,
+    "people_total": 24,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "6924afedab03380013a10683",
+    "event_date": "2025-11-20T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 24,
+    "absentees_inferred_count": 5,
+    "people_total": 29,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "692978a74fa69e0012b0bdb8",
+    "event_date": "2025-11-27T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 12,
+    "absentees_inferred_count": 17,
+    "people_total": 29,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "693313e4728f5c0013bac557",
+    "event_date": "2025-12-04T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 0,
+    "absentees_inferred_count": 29,
+    "people_total": 29,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "6985e0ec1db7950014d2c949",
+    "event_date": "2026-01-29T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 17,
+    "absentees_inferred_count": 5,
+    "people_total": 22,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "6985e06a1db7950014d2c6f2",
+    "event_date": "2026-02-05T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 10,
+    "absentees_inferred_count": 14,
+    "people_total": 24,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "69a17bc0b2f7380013be8ec2",
+    "event_date": "2026-02-19T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 0,
+    "absentees_inferred_count": 22,
+    "people_total": 22,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "69a17c13b2f7380013be8f7c",
+    "event_date": "2026-02-26T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 11,
+    "absentees_inferred_count": 11,
+    "people_total": 22,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "69aa9c877b386100131d7333",
+    "event_date": "2026-03-05T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 15,
+    "absentees_inferred_count": 7,
+    "people_total": 22,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "69bd2cdc38c4560013acfaca",
+    "event_date": "2026-03-12T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 0,
+    "absentees_inferred_count": 23,
+    "people_total": 23,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "69bd2caaa2d05f0013cae70c",
+    "event_date": "2026-03-19T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 14,
+    "absentees_inferred_count": 9,
+    "people_total": 23,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "69ccffa29e64370012bdad34",
+    "event_date": "2026-03-26T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 0,
+    "absentees_inferred_count": 23,
+    "people_total": 23,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "69d406d56ca4d10012923243",
+    "event_date": "2026-04-02T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 14,
+    "absentees_inferred_count": 9,
+    "people_total": 23,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "69d8e6e203fdc90012d95cef",
+    "event_date": "2026-04-09T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 11,
+    "absentees_inferred_count": 11,
+    "people_total": 22,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "69e225c926daaa00136da2d9",
+    "event_date": "2026-04-16T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 14,
+    "absentees_inferred_count": 8,
+    "people_total": 22,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "69eb7ce14357a0001204fae9",
+    "event_date": "2026-04-23T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 8,
+    "absentees_inferred_count": 13,
+    "people_total": 21,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "69f611cc7e54ba0013976457",
+    "event_date": "2026-04-30T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 13,
+    "absentees_inferred_count": 8,
+    "people_total": 21,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "69fdcbc550d3830012bf73a1",
+    "event_date": "2026-05-07T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 13,
+    "absentees_inferred_count": 8,
+    "people_total": 21,
+    "status": 200,
+    "group_id": "61f2d4aa578b3700190c5bb8"
+  },
+  {
+    "event_id": "697f873d6291c5001289b027",
+    "event_date": "2026-01-29T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 4,
+    "absentees_inferred_count": 2,
+    "people_total": 6,
+    "status": 200,
+    "group_id": "69727f3e82102e001356e6e0"
+  },
+  {
+    "event_id": "6986957bf01eab001265435b",
+    "event_date": "2026-02-05T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 6,
+    "absentees_inferred_count": 0,
+    "people_total": 6,
+    "status": 200,
+    "group_id": "69727f3e82102e001356e6e0"
+  },
+  {
+    "event_id": "698fb77ecc34b600132bd1bf",
+    "event_date": "2026-02-12T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 6,
+    "absentees_inferred_count": 0,
+    "people_total": 6,
+    "status": 200,
+    "group_id": "69727f3e82102e001356e6e0"
+  },
+  {
+    "event_id": "69a18399a4a2220012dc1cde",
+    "event_date": "2026-02-19T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 0,
+    "absentees_inferred_count": 6,
+    "people_total": 6,
+    "status": 200,
+    "group_id": "69727f3e82102e001356e6e0"
+  },
+  {
+    "event_id": "69a18351a4a2220012dc1bb4",
+    "event_date": "2026-02-26T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 4,
+    "absentees_inferred_count": 2,
+    "people_total": 6,
+    "status": 200,
+    "group_id": "69727f3e82102e001356e6e0"
+  },
+  {
+    "event_id": "69aaf9b3a2098a0013e0b375",
+    "event_date": "2026-03-05T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 6,
+    "absentees_inferred_count": 0,
+    "people_total": 6,
+    "status": 200,
+    "group_id": "69727f3e82102e001356e6e0"
+  },
+  {
+    "event_id": "69bbdf9138c456001398ac85",
+    "event_date": "2026-03-12T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 0,
+    "absentees_inferred_count": 6,
+    "people_total": 6,
+    "status": 200,
+    "group_id": "69727f3e82102e001356e6e0"
+  },
+  {
+    "event_id": "69bdca5aaaed18001363171c",
+    "event_date": "2026-03-19T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 4,
+    "absentees_inferred_count": 2,
+    "people_total": 6,
+    "status": 200,
+    "group_id": "69727f3e82102e001356e6e0"
+  },
+  {
+    "event_id": "69caf81b5d5f3a0012e4d6da",
+    "event_date": "2026-03-26T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 2,
+    "absentees_inferred_count": 4,
+    "people_total": 6,
+    "status": 200,
+    "group_id": "69727f3e82102e001356e6e0"
+  },
+  {
+    "event_id": "69cfcfb840642600120539d4",
+    "event_date": "2026-04-02T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 4,
+    "absentees_inferred_count": 2,
+    "people_total": 6,
+    "status": 200,
+    "group_id": "69727f3e82102e001356e6e0"
+  },
+  {
+    "event_id": "69d9adbd708a6b0012ebee2d",
+    "event_date": "2026-04-09T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 6,
+    "absentees_inferred_count": 0,
+    "people_total": 6,
+    "status": 200,
+    "group_id": "69727f3e82102e001356e6e0"
+  },
+  {
+    "event_id": "69e8f7609d337700126f8e0e",
+    "event_date": "2026-04-16T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 6,
+    "absentees_inferred_count": 0,
+    "people_total": 6,
+    "status": 200,
+    "group_id": "69727f3e82102e001356e6e0"
+  },
+  {
+    "event_id": "69ee37ac64e34c0013c7d02e",
+    "event_date": "2026-04-23T03:00:00.000Z",
+    "event_name": "Reunião de célula",
+    "attendees_count": 4,
+    "absentees_inferred_count": 2,
+    "people_total": 6,
+    "status": 200,
+    "group_id": "69727f3e82102e001356e6e0"
+  }
+]

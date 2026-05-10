@@ -1,0 +1,888 @@
+{
+  "data": {
+    "type": "groups",
+    "id": "69727f3e82102e001356e6e0",
+    "attributes": {
+      "created-at": "2026-01-22T19:49:18.178Z",
+      "updated-at": "2026-04-27T13:57:52.223Z",
+      "name": "Eduardo hass",
+      "nickname": "Parque Mandaqui - Cassiano e Jessica",
+      "description": null,
+      "group-type": "cell",
+      "group-position": 1,
+      "label": "Célula",
+      "weekday": 4,
+      "interval": null,
+      "starts-at": 1200,
+      "ends-at": 1260,
+      "gender-category": "Família",
+      "age-group-bottom": 32,
+      "age-group-top": 45,
+      "address": {
+        "location": {
+          "lat": -23.4702996,
+          "lng": -46.6346247,
+          "locationType": "ROOFTOP"
+        },
+        "street": "Rua Doutor João Uchoa Cavalcanti, 124",
+        "complement": "Parque Mandaqui - Apto 6",
+        "city": "São Paulo",
+        "state": "SP",
+        "country": "Brasil",
+        "postalCode": "02422-110",
+        "streetType": null,
+        "number": null,
+        "neighborhood": null
+      },
+      "is-online": false,
+      "slug": null,
+      "online-location": null,
+      "details": {
+        "goals": {},
+        "eventsSummary": []
+      },
+      "avatar-hash": "",
+      "avatar-source": "initials",
+      "is-closed": false,
+      "closed-by-admin": false,
+      "closing-note": null,
+      "is-public": false,
+      "closed-at": null,
+      "hierarchy-at-closing": [],
+      "future-groups": [],
+      "has-multiplied": false,
+      "multiplied-at": null,
+      "multiplied-from": null,
+      "hierarchy-at-multiplication": [],
+      "multiplication-stats-on-people": {
+        "leaders": [],
+        "upcomingLeaders": [],
+        "participants": [],
+        "previousParticipants": []
+      },
+      "multiplied-with": [],
+      "multiplication": {
+        "cellPrototype": false,
+        "currentGroup": false,
+        "awaitingApproval": false,
+        "approved": false,
+        "history": []
+      },
+      "settings": {
+        "showLeadersPhones": false,
+        "showLeadersEmails": true,
+        "showGroupAddress": false,
+        "showGroup": true
+      },
+      "recess": {
+        "recessEnabled": false,
+        "startDate": null,
+        "endDate": null
+      }
+    },
+    "relationships": {
+      "created-by": {
+        "data": {
+          "type": "people",
+          "id": "616f0fb3529a2a00190daa21"
+        }
+      },
+      "modified-by": {
+        "data": {
+          "type": "people",
+          "id": "616f0fb3529a2a00190daa21"
+        }
+      },
+      "multiplied-by": {
+        "data": null
+      },
+      "closed-by": {
+        "data": null
+      },
+      "group-above": {
+        "data": {
+          "type": "groups",
+          "id": "69e5880c24f9a60013ee46cb"
+        }
+      },
+      "groups-below": {
+        "data": []
+      },
+      "future-groups": {
+        "data": []
+      },
+      "multiplied-from": {
+        "data": null
+      },
+      "events": {
+        "data": [
+          {
+            "type": "group-events",
+            "id": "697f873d6291c5001289b027"
+          },
+          {
+            "type": "group-events",
+            "id": "6986957bf01eab001265435b"
+          },
+          {
+            "type": "group-events",
+            "id": "698fb77ecc34b600132bd1bf"
+          },
+          {
+            "type": "group-events",
+            "id": "69a18399a4a2220012dc1cde"
+          },
+          {
+            "type": "group-events",
+            "id": "69a18351a4a2220012dc1bb4"
+          },
+          {
+            "type": "group-events",
+            "id": "69aaf9b3a2098a0013e0b375"
+          },
+          {
+            "type": "group-events",
+            "id": "69bbdf9138c456001398ac85"
+          },
+          {
+            "type": "group-events",
+            "id": "69bdca5aaaed18001363171c"
+          },
+          {
+            "type": "group-events",
+            "id": "69caf81b5d5f3a0012e4d6da"
+          },
+          {
+            "type": "group-events",
+            "id": "69cfcfb840642600120539d4"
+          },
+          {
+            "type": "group-events",
+            "id": "69d9adbd708a6b0012ebee2d"
+          },
+          {
+            "type": "group-events",
+            "id": "69e8f7609d337700126f8e0e"
+          },
+          {
+            "type": "group-events",
+            "id": "69ee37ac64e34c0013c7d02e"
+          }
+        ]
+      },
+      "leaders": {
+        "data": [
+          {
+            "type": "people",
+            "id": "62064cb04b47d100123f6d5d"
+          },
+          {
+            "type": "people",
+            "id": "6500b17d264aa500197c4f40"
+          }
+        ]
+      },
+      "upcoming-leaders": {
+        "data": []
+      },
+      "editors": {
+        "data": []
+      },
+      "participants": {
+        "data": [
+          {
+            "type": "people",
+            "id": "62064cb04b47d100123f6d5d"
+          },
+          {
+            "type": "people",
+            "id": "64417aeba22d340012359b99"
+          },
+          {
+            "type": "people",
+            "id": "61707f46aeede2001240ed2b"
+          },
+          {
+            "type": "people",
+            "id": "661d15b3ce319300131303de"
+          },
+          {
+            "type": "people",
+            "id": "6500b17d264aa500197c4f40"
+          },
+          {
+            "type": "people",
+            "id": "64f7356db5b446001a38eeb3"
+          },
+          {
+            "type": "people",
+            "id": "661d16eece31930013130a80"
+          }
+        ]
+      },
+      "previous-participants": {
+        "data": []
+      },
+      "host": {
+        "data": {
+          "type": "people",
+          "id": "62064cb04b47d100123f6d5d"
+        }
+      },
+      "future-host": {
+        "data": null
+      },
+      "church-campus": {
+        "data": {
+          "type": "church-campuses",
+          "id": "616f154c529a2a00190daa62"
+        }
+      }
+    }
+  },
+  "included": [
+    {
+      "type": "people",
+      "id": "62064cb04b47d100123f6d5d",
+      "attributes": {
+        "created-at": "2022-02-11T11:46:56.319Z",
+        "updated-at": "2026-04-11T02:10:35.620Z",
+        "name": "Cassiano Valentim",
+        "full-name": "Cassiano Valentin da Silva",
+        "nickname": null,
+        "email": "cassiano.valentim@edificando.com.br",
+        "anniversary": "02-20",
+        "birthdate": null,
+        "age": 38,
+        "sex": "male",
+        "marital-status": "married",
+        "spouse": null,
+        "custom": null,
+        "roles": [],
+        "is-active": true,
+        "is-member": true,
+        "is-baptized": true,
+        "avatar-source": "upload",
+        "avatar-hash": "e8aa2af4",
+        "decision-for-christ-at": null,
+        "traits": {
+          "ul1": true,
+          "ul2": true,
+          "ul3": true,
+          "ul4": true,
+          "ul5": true,
+          "ul6": true,
+          "ul7": true,
+          "h1": false,
+          "h2": false,
+          "h3": false,
+          "h4": false,
+          "h5": false
+        },
+        "address": {
+          "street": null,
+          "complement": null,
+          "city": null,
+          "state": null,
+          "country": null,
+          "postalCode": null,
+          "number": null,
+          "neighborhood": null
+        },
+        "recess": null
+      },
+      "relationships": {
+        "phones": {
+          "data": [
+            {
+              "type": "phones",
+              "id": "6225eef12f853a0019c2798c"
+            }
+          ]
+        },
+        "decision-for-christ-group": {
+          "data": null
+        },
+        "leaded-groups": {
+          "data": [
+            {
+              "type": "group",
+              "id": "69727f3e82102e001356e6e0"
+            },
+            {
+              "type": "group",
+              "id": "69e5897124f9a60013ee4985"
+            }
+          ]
+        },
+        "training-groups": {
+          "data": []
+        },
+        "participates": {
+          "data": [
+            {
+              "type": "group",
+              "id": "69727f3e82102e001356e6e0"
+            },
+            {
+              "type": "group",
+              "id": "69e5897124f9a60013ee4985"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "people",
+      "id": "6500b17d264aa500197c4f40",
+      "attributes": {
+        "created-at": "2022-02-11T11:47:18.382Z",
+        "updated-at": "2026-02-01T17:03:16.313Z",
+        "name": "Jéssica Valentim",
+        "full-name": "Jéssica Faria Valentim",
+        "nickname": "Jess",
+        "email": "jessica.valentim@edificando.com.br",
+        "anniversary": "04-12",
+        "birthdate": "1990-04-12",
+        "age": 0,
+        "sex": "female",
+        "marital-status": "married",
+        "spouse": "Cassiano Valentim",
+        "custom": null,
+        "roles": [],
+        "is-active": true,
+        "is-member": false,
+        "is-baptized": true,
+        "avatar-source": "upload",
+        "avatar-hash": "9221135a",
+        "decision-for-christ-at": null,
+        "traits": {
+          "ul1": false,
+          "ul2": false,
+          "ul3": false,
+          "ul4": false,
+          "ul5": false,
+          "ul6": false,
+          "ul7": false,
+          "h1": false,
+          "h2": false,
+          "h3": false,
+          "h4": false,
+          "h5": false
+        },
+        "address": {
+          "country": "Brasil ",
+          "state": "São Paulo ",
+          "city": "São Paulo ",
+          "streetType": null,
+          "street": "Rua Doutor João Uchoa Cavalcanti, 124",
+          "number": null,
+          "complement": "6",
+          "neighborhood": null,
+          "postalCode": "02422110",
+          "location": {
+            "lat": -23.4702996,
+            "lng": -46.6346247,
+            "locationType": "ROOFTOP"
+          }
+        },
+        "recess": null
+      },
+      "relationships": {
+        "phones": {
+          "data": [
+            {
+              "type": "phones",
+              "id": "6500b17d264aa500197c4f41"
+            }
+          ]
+        },
+        "decision-for-christ-group": {
+          "data": null
+        },
+        "leaded-groups": {
+          "data": [
+            {
+              "type": "group",
+              "id": "69727f3e82102e001356e6e0"
+            }
+          ]
+        },
+        "training-groups": {
+          "data": []
+        },
+        "participates": {
+          "data": [
+            {
+              "type": "group",
+              "id": "69727f3e82102e001356e6e0"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "people",
+      "id": "64417aeba22d340012359b99",
+      "attributes": {
+        "created-at": "2022-05-16T18:32:30.019Z",
+        "updated-at": "2024-04-15T11:41:50.665Z",
+        "name": "Daniel Felipe",
+        "full-name": "Daniel Felipe  Santos",
+        "nickname": null,
+        "email": null,
+        "anniversary": "08-30",
+        "birthdate": null,
+        "age": 13,
+        "sex": "male",
+        "marital-status": "married",
+        "spouse": null,
+        "custom": null,
+        "roles": [],
+        "is-active": false,
+        "is-member": false,
+        "is-baptized": true,
+        "avatar-source": "upload",
+        "avatar-hash": "ead0887a",
+        "decision-for-christ-at": null,
+        "traits": {
+          "ul1": false,
+          "ul2": false,
+          "ul3": false,
+          "ul4": false,
+          "ul5": false,
+          "ul6": false,
+          "ul7": false,
+          "h1": false,
+          "h2": false,
+          "h3": false,
+          "h4": false,
+          "h5": false
+        },
+        "address": {
+          "postalCode": null
+        },
+        "recess": null
+      },
+      "relationships": {
+        "phones": {
+          "data": [
+            {
+              "type": "phones",
+              "id": "6511d532ee2a910019ec8b99"
+            }
+          ]
+        },
+        "decision-for-christ-group": {
+          "data": null
+        },
+        "leaded-groups": {
+          "data": []
+        },
+        "training-groups": {
+          "data": []
+        },
+        "participates": {
+          "data": [
+            {
+              "type": "group",
+              "id": "69727f3e82102e001356e6e0"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "people",
+      "id": "61707f46aeede2001240ed2b",
+      "attributes": {
+        "created-at": "2021-10-20T20:42:46.660Z",
+        "updated-at": "2026-04-16T18:36:34.069Z",
+        "name": "Eduardo hass",
+        "full-name": "Eduardo hass",
+        "nickname": "",
+        "email": "eduardo.hass@edificando.com.br",
+        "anniversary": "07-26",
+        "birthdate": "1987-07-26",
+        "age": null,
+        "sex": "male",
+        "marital-status": "married",
+        "spouse": "Naythá Terrery Hass",
+        "custom": null,
+        "roles": [],
+        "is-active": true,
+        "is-member": true,
+        "is-baptized": true,
+        "avatar-source": "upload",
+        "avatar-hash": "2a346fd1",
+        "decision-for-christ-at": "1994-08-10T03:00:00.000Z",
+        "traits": {
+          "ul1": false,
+          "ul2": false,
+          "ul3": false,
+          "ul4": false,
+          "ul5": false,
+          "ul6": false,
+          "ul7": false,
+          "h1": false,
+          "h2": false,
+          "h3": false,
+          "h4": false,
+          "h5": false
+        },
+        "address": {
+          "country": "brazil",
+          "state": "SP",
+          "city": "São Paulo",
+          "streetType": null,
+          "street": "Rua Coronel Octávio Azeredo, 21",
+          "number": null,
+          "complement": "Vila Mazzei",
+          "neighborhood": null,
+          "postalCode": "02311-110",
+          "location": {
+            "lat": -23.4697131,
+            "lng": -46.6031419,
+            "locationType": "ROOFTOP"
+          }
+        },
+        "recess": null
+      },
+      "relationships": {
+        "phones": {
+          "data": [
+            {
+              "type": "phones",
+              "id": "61707f46aeede2001240ed2c"
+            }
+          ]
+        },
+        "decision-for-christ-group": {
+          "data": null
+        },
+        "leaded-groups": {
+          "data": [
+            {
+              "type": "group",
+              "id": "61f2d4aa578b3700190c5bb8"
+            },
+            {
+              "type": "group",
+              "id": "69e5880c24f9a60013ee46cb"
+            }
+          ]
+        },
+        "training-groups": {
+          "data": []
+        },
+        "participates": {
+          "data": [
+            {
+              "type": "group",
+              "id": "61f2d4aa578b3700190c5bb8"
+            },
+            {
+              "type": "group",
+              "id": "69e5880c24f9a60013ee46cb"
+            },
+            {
+              "type": "group",
+              "id": "69727f3e82102e001356e6e0"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "people",
+      "id": "661d15b3ce319300131303de",
+      "attributes": {
+        "created-at": "2024-04-15T11:55:31.743Z",
+        "updated-at": "2024-04-15T11:55:31.743Z",
+        "name": "Ellen Cristina Carvalho Teles de Freitas",
+        "full-name": "Ellen Cristina Carvalho Teles de Freitas",
+        "nickname": null,
+        "email": "ellen.cristina.teles@outlook.com",
+        "anniversary": "12-28",
+        "birthdate": "1990-12-28",
+        "age": 0,
+        "sex": "female",
+        "marital-status": "married",
+        "spouse": null,
+        "custom": null,
+        "roles": [],
+        "is-active": true,
+        "is-member": false,
+        "is-baptized": true,
+        "avatar-source": "initials",
+        "avatar-hash": "",
+        "decision-for-christ-at": null,
+        "traits": {
+          "ul1": false,
+          "ul2": false,
+          "ul3": false,
+          "ul4": false,
+          "ul5": false,
+          "ul6": false,
+          "ul7": false,
+          "h1": false,
+          "h2": false,
+          "h3": false,
+          "h4": false,
+          "h5": false
+        },
+        "address": {
+          "street": null,
+          "complement": null,
+          "city": null,
+          "state": null,
+          "country": null,
+          "postalCode": null
+        },
+        "recess": null
+      },
+      "relationships": {
+        "phones": {
+          "data": [
+            {
+              "type": "phones",
+              "id": "661d15b3ce319300131303df"
+            }
+          ]
+        },
+        "decision-for-christ-group": {
+          "data": null
+        },
+        "leaded-groups": {
+          "data": []
+        },
+        "training-groups": {
+          "data": []
+        },
+        "participates": {
+          "data": [
+            {
+              "type": "group",
+              "id": "69727f3e82102e001356e6e0"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "people",
+      "id": "64f7356db5b446001a38eeb3",
+      "attributes": {
+        "created-at": "2022-05-16T18:32:04.604Z",
+        "updated-at": "2024-08-20T17:35:02.589Z",
+        "name": "Karin Hass",
+        "full-name": "Karin Hass",
+        "nickname": null,
+        "email": "karin_hass@hotmail.com",
+        "anniversary": "01-09",
+        "birthdate": null,
+        "age": 0,
+        "sex": "female",
+        "marital-status": "married",
+        "spouse": null,
+        "custom": null,
+        "roles": [],
+        "is-active": true,
+        "is-member": false,
+        "is-baptized": true,
+        "avatar-source": "upload",
+        "avatar-hash": "e6443d84",
+        "decision-for-christ-at": null,
+        "traits": {
+          "ul1": false,
+          "ul2": false,
+          "ul3": false,
+          "ul4": false,
+          "ul5": false,
+          "ul6": false,
+          "ul7": false,
+          "h1": false,
+          "h2": false,
+          "h3": false,
+          "h4": false,
+          "h5": false
+        },
+        "address": {
+          "street": null,
+          "complement": null,
+          "city": null,
+          "state": null,
+          "country": null,
+          "postalCode": null
+        },
+        "recess": null
+      },
+      "relationships": {
+        "phones": {
+          "data": [
+            {
+              "type": "phones",
+              "id": "64f7356db5b446001a38eeb4"
+            }
+          ]
+        },
+        "decision-for-christ-group": {
+          "data": null
+        },
+        "leaded-groups": {
+          "data": []
+        },
+        "training-groups": {
+          "data": []
+        },
+        "participates": {
+          "data": [
+            {
+              "type": "group",
+              "id": "69727f3e82102e001356e6e0"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "people",
+      "id": "661d16eece31930013130a80",
+      "attributes": {
+        "created-at": "2024-04-15T12:00:46.660Z",
+        "updated-at": "2024-06-30T14:02:31.069Z",
+        "name": "Saulo Andrade de Freitas",
+        "full-name": "Saulo Andrade de Freitas",
+        "nickname": null,
+        "email": "saulo.andrade.freitas@hotmail.com",
+        "anniversary": "05-13",
+        "birthdate": "1988-05-13",
+        "age": 0,
+        "sex": "male",
+        "marital-status": "married",
+        "spouse": null,
+        "custom": null,
+        "roles": [],
+        "is-active": true,
+        "is-member": false,
+        "is-baptized": true,
+        "avatar-source": "upload",
+        "avatar-hash": "75e6aa99",
+        "decision-for-christ-at": null,
+        "traits": {
+          "ul1": false,
+          "ul2": false,
+          "ul3": false,
+          "ul4": false,
+          "ul5": false,
+          "ul6": false,
+          "ul7": false,
+          "h1": false,
+          "h2": false,
+          "h3": false,
+          "h4": false,
+          "h5": false
+        },
+        "address": {
+          "street": null,
+          "complement": null,
+          "city": null,
+          "state": null,
+          "country": null,
+          "postalCode": null
+        },
+        "recess": null
+      },
+      "relationships": {
+        "phones": {
+          "data": [
+            {
+              "type": "phones",
+              "id": "661d16eece31930013130a81"
+            }
+          ]
+        },
+        "decision-for-christ-group": {
+          "data": null
+        },
+        "leaded-groups": {
+          "data": []
+        },
+        "training-groups": {
+          "data": []
+        },
+        "participates": {
+          "data": [
+            {
+              "type": "group",
+              "id": "69727f3e82102e001356e6e0"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "type": "phones",
+      "id": "6225eef12f853a0019c2798c",
+      "attributes": {
+        "country-code": "55",
+        "number": "11966055656",
+        "label": "cel"
+      }
+    },
+    {
+      "type": "phones",
+      "id": "6500b17d264aa500197c4f41",
+      "attributes": {
+        "country-code": "55",
+        "number": "11991104932",
+        "label": null
+      }
+    },
+    {
+      "type": "phones",
+      "id": "6511d532ee2a910019ec8b99",
+      "attributes": {
+        "country-code": "55",
+        "number": "11967872627",
+        "label": null
+      }
+    },
+    {
+      "type": "phones",
+      "id": "61707f46aeede2001240ed2c",
+      "attributes": {
+        "country-code": "55",
+        "number": "11919519714",
+        "label": "Telefone"
+      }
+    },
+    {
+      "type": "phones",
+      "id": "661d15b3ce319300131303df",
+      "attributes": {
+        "country-code": "55",
+        "number": "11965034556",
+        "label": null
+      }
+    },
+    {
+      "type": "phones",
+      "id": "64f7356db5b446001a38eeb4",
+      "attributes": {
+        "country-code": "55",
+        "number": "11947580847",
+        "label": null
+      }
+    },
+    {
+      "type": "phones",
+      "id": "661d16eece31930013130a81",
+      "attributes": {
+        "country-code": "55",
+        "number": "11960190130",
+        "label": null
+      }
+    }
+  ]
+}

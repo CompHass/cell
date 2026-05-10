@@ -1,0 +1,40 @@
+{
+  "status": 200,
+  "method": "GET",
+  "url": "https://api.celula.in/v1/groups/61f2d4aa578b3700190c5bb8",
+  "requestHeaders": {
+    ":authority": "api.celula.in",
+    ":method": "GET",
+    ":path": "/v1/groups/61f2d4aa578b3700190c5bb8",
+    ":scheme": "https",
+    "accept": "application/vnd.api+json",
+    "accept-encoding": "gzip, deflate, br, zstd",
+    "authorization": "<redacted>",
+    "content-type": "application/vnd.api+json",
+    "if-none-match": "W/\"10dc6-Em6uO47doGQOfDcUkizpsW8CT7A\"",
+    "origin": "https://app.celula.in",
+    "priority": "u=1, i",
+    "referer": "https://app.celula.in/",
+    "sec-ch-ua": "\"Not:A-Brand\";v=\"99\", \"HeadlessChrome\";v=\"145\", \"Chromium\";v=\"145\"",
+    "sec-ch-ua-mobile": "?0",
+    "sec-ch-ua-platform": "\"Linux\"",
+    "sec-fetch-dest": "empty",
+    "sec-fetch-mode": "cors",
+    "sec-fetch-site": "same-site",
+    "user-agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/145.0.7632.0 Safari/537.36"
+  },
+  "requestPostData": null,
+  "responseHeaders": {
+    "ratelimit": "limit=100000, remaining=99998, reset=3600",
+    "access-control-max-age": "86400",
+    "ratelimit-policy": "100000;w=3600",
+    "content-encoding": "gzip",
+    "etag": "W/\"10dc6-Em6uO47doGQOfDcUkizpsW8CT7A\"",
+    "access-control-allow-methods": "OPTIONS, GET, POST, PUT, DELETE, PATCH",
+    "access-control-allow-origin": "https://app.celula.in",
+    "date": "Wed, 11 Feb 2026 20:14:00 GMT",
+    "content-type": "application/vnd.api+json; charset=utf-8",
+    "vary": "Accept-Encoding",
+    "access-control-allow-headers": "X-Requested-With, Content-Type, Authorization"
+  }
+}

@@ -1,0 +1,170 @@
+{
+    "data": {
+        "type": "accounts",
+        "id": "616f0fb2529a2a00190daa1e",
+        "attributes": {
+            "created-at": "2021-10-21T18:34:26.950Z",
+            "updated-at": "2026-01-14T15:25:05.056Z",
+            "trial": false,
+            "trial-expired": null,
+            "site": "edificando.com.br",
+            "church-phone": {
+                "countryCode": "55",
+                "number": "11963874579",
+                "label": null
+            },
+            "owner-name": "Edificando Tremembé",
+            "email": "admcelulas.trem@edificando.com.br",
+            "billing-email": "financeiro@edificando.com.br",
+            "customization": {
+                "cell": "Célula",
+                "cells": "Células"
+            },
+            "preferences": {
+                "reregister": false,
+                "lessonsForLeaders": true,
+                "onlineCells": true,
+                "cellOfferings": false
+            },
+            "church-acronym": "IEEC",
+            "church-name": "Igreja Evangélica Edificando em Cristo",
+            "church-id": {
+                "type": "CNPJ",
+                "value": "01601443000109"
+            },
+            "church-address": {
+                "street": "Avenida Senador José Ermírio de Moraes",
+                "number": "517",
+                "complement": "",
+                "neighborhood": "Tremembé",
+                "city": "São Paulo",
+                "state": "SP",
+                "country": "Brasil",
+                "postalCode": "02357-001"
+            },
+            "subdomain": "edificando",
+            "custom-app": {
+                "enabled": false
+            },
+            "settings": {
+                "country": "BRA",
+                "lang": "pt-BR",
+                "timezone": "America/Sao_Paulo",
+                "dateFormat": "%d/%m/%Y",
+                "timeFormat": "%H:%M",
+                "cellCategories": [
+                    "Crianças - KIDS",
+                    "Homens",
+                    "Mulheres",
+                    "Mista",
+                    "Família",
+                    "Coletivo Adolescentes",
+                    "Coletivo Jovens",
+                    "Jovens Casais",
+                    "Feliz Idade"
+                ],
+                "applications": [],
+                "groups": [
+                    {
+                        "groupType": "coaching",
+                        "groupName": "Igreja",
+                        "groupPosition": 1
+                    },
+                    {
+                        "groupType": "coaching",
+                        "groupName": "Área",
+                        "groupPosition": 2
+                    },
+                    {
+                        "groupType": "coaching",
+                        "groupName": "Coordenação",
+                        "groupPosition": 3
+                    },
+                    {
+                        "groupType": "coaching",
+                        "groupName": "Supervisão",
+                        "groupPosition": 4
+                    },
+                    {
+                        "groupType": "coaching",
+                        "groupName": "Líder",
+                        "groupPosition": 5
+                    }
+                ],
+                "logo": true,
+                "logoSource": "73e25bd7-28ad-4273-8d4e-f3745c94b880",
+                "recess": {
+                    "recessEnabled": false
+                }
+            },
+            "features": {
+                "prospects": false,
+                "onboarding": true,
+                "giving": false,
+                "materialComments": true
+            },
+            "billing": {
+                "delinquent": false
+            },
+            "billing-name": "Igreja Evangélica Edificando em Cristo",
+            "billing-address": {
+                "line1": "Avenida Senador José Ermírio de Moraes",
+                "line2": "517",
+                "line3": "",
+                "line4": "Tremembé",
+                "city": "São Paulo",
+                "state": "SP",
+                "country": "Brasil",
+                "postalCode": "02357-001"
+            },
+            "alerts": {
+                "billing": 0,
+                "total": 0
+            },
+            "blocked": false,
+            "events-availability-in-days-boleto": 30,
+            "events-availability-in-days-credit-card": 30,
+            "events-payment-currency": "BRL",
+            "events-payment-fee-boleto-percent": 0.07,
+            "events-payment-fee-boleto-flat": 0,
+            "events-payment-fee-credit-card-percent": 0.07,
+            "events-payment-fee-credit-card-flat": 0,
+            "events-payout-fee": 0,
+            "giving-availability-in-days-boleto": 3,
+            "giving-availability-in-days-credit-card": 3,
+            "giving-payment-currency": "BRL",
+            "giving-payment-fee-boleto-percent": 0.069,
+            "giving-payment-fee-boleto-flat": 0,
+            "giving-payment-fee-boleto-minimum": 350,
+            "giving-payment-fee-credit-card-percent": 0.069,
+            "giving-payment-fee-credit-card-flat": 0,
+            "giving-payment-fee-credit-card-minimum": 200,
+            "giving-payment-fee-pix-percent": 0.069,
+            "giving-payment-fee-pix-flat": 0,
+            "giving-payment-fee-pix-minimum": 200,
+            "giving-payout-fee": 200,
+            "legal-acceptances": {
+                "privacyPolicy": {
+                    "acceptanceId": "b041bb8f-90c8-4a55-8463-466165b2b374",
+                    "accepted": true,
+                    "acceptedAt": "2026-01-14T15:25:05.051Z",
+                    "ipAddress": "::ffff:172.31.69.120",
+                    "language": "pt-BR",
+                    "status": "active",
+                    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36",
+                    "version": "2025-08-13"
+                },
+                "softwareLicense": {
+                    "acceptanceId": "59a3f55e-76c4-4b5e-856a-f86e37033114",
+                    "accepted": true,
+                    "acceptedAt": "2026-01-14T15:25:05.051Z",
+                    "ipAddress": "::ffff:172.31.69.120",
+                    "language": "pt-BR",
+                    "status": "active",
+                    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/133.0.0.0 Safari/537.36",
+                    "version": "2025-08-13"
+                }
+            }
+        }
+    }
+}
