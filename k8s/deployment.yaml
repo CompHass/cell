@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cell-frequency
+  namespace: cell-frequency
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cell-frequency
+  template:
+    metadata:
+      labels:
+        app: cell-frequency
+    spec:
+      containers:
+        - name: cell-frequency
+          image: harbor.hasslab.pro/cell-frequency/cell-frequency:latest
+          ports:
+            - containerPort: 8000
+          env:
+            - name: DATABASE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: cell-frequency-secret
+                  key: DATABASE_URL
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 8000
+            initialDelaySeconds: 10
+            periodSeconds: 10
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "256Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
