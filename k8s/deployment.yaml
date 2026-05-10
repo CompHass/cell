@@ -13,6 +13,8 @@ spec:
       labels:
         app: cell-frequency
     spec:
+      imagePullSecrets:
+        - name: harbor-pull-secret
       containers:
         - name: cell-frequency
           image: harbor.hasslab.pro/cell-frequency/cell-frequency:latest
