@@ -4,14 +4,14 @@
 
 See: .planning/PROJECT.md
 
-**Current focus:** Phase 07 (pipeline-build-push-imagens-front-backend)
+**Current focus:** Phase 08 (etl-cronjob-kubernetes)
 
 ## Current Position
 
-Phase: 07 of 07 (pipeline-build-push-imagens-front-backend)
-Plan: 02 — Checkpoint pending (human-verify)
-Status: Task 1 complete, awaiting human verification of Harbor secrets + workflow run
-Last activity: 2026-05-10 — Executed 07-02 Task 1: GitHub Actions build+push workflow
+Phase: 08 of 08 (etl-cronjob-kubernetes)
+Plan: 01 — Complete
+Status: 08-01 done — k8s/secret.yaml updated with ETL credentials
+Last activity: 2026-05-09 — Executed 08-01: add ETL credentials to Kubernetes secret
 
 Progress: [██████████] 07-01 done | [█████░░░░░] 07-02 checkpoint
 
@@ -25,6 +25,7 @@ Migrated from GSD-2. Review PROJECT.md for key decisions.
 
 - Phase 06 added: Dashboard com filtros — pessoa, data (de/até) e grupo
 - Phase 07 added: Pipeline de build e push das imagens do front e backend
+- Phase 08 added: Pipeline ETL no Kubernetes (extract + load agendado via CronJob)
 
 ### Blockers/Concerns
 
