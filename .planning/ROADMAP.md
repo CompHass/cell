@@ -39,3 +39,14 @@
     **Plans:** 2 plans
     - [x] 08-01-PLAN.md — Adicionar credenciais ETL ao k8s/secret.yaml
     - [x] 08-02-PLAN.md — Criar k8s/etl-cronjob.yaml (CronJob diário)
+
+### Phase 9: Pending meetings alert — list groups with missing weekly meeting entries
+
+**Goal:** Add a KPI card (far right of metrics row) showing count of groups with unregistered weekly meetings. Card hidden when 0 pending; click expands inline detail listing groups + missing ISO weeks.
+**Requirements**: D-01 through D-09 (see 09-CONTEXT.md)
+**Depends on:** Phase 8
+**Plans:** 2 plans
+
+Plans:
+- [ ] 09-01-PLAN.md — Backend: GET /api/pending-meetings endpoint + week helpers
+- [ ] 09-02-PLAN.md — Frontend: 5th KPI card + detail panel in index.html
