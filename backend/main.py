@@ -3,7 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from sqlalchemy.orm import Session
 from sqlalchemy import func, case
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, date as _date
 from collections import defaultdict
 from backend.database import get_db
 from backend.models import Group, Person, Event, Attendance
@@ -29,6 +29,30 @@ app.add_middleware(
 #
 # Valid event   = at least 1 person was present (cancelled meetings excluded)
 # ---------------------------------------------------------------------------
+
+# ── Week helpers (Phase 9) ────────────────────────────────────────────
+def _get_monday(d: _date) -> _date:
+    """Return the Monday of the week containing d (Mon=0, Sun=6)."""
+    return d - timedelta(days=d.weekday())
+
+
+def _last_sunday(today: _date) -> _date:
+    """Return the most recent Sunday (UTC). Returns today if today is Sunday."""
+    return today - timedelta(days=(today.weekday() + 1) % 7)
+
+
+def _all_weeks_since(first_event_dt: datetime, ref_sunday: _date):
+    """
+    Yield (monday: _date, sunday: _date) for every Mon–Sun week from
+    the week containing first_event_dt through the week ending ref_sunday.
+    """
+    start = _get_monday(first_event_dt.date() if hasattr(first_event_dt, "date") else first_event_dt)
+    end   = _get_monday(ref_sunday)
+    cur   = start
+    while cur <= end:
+        yield cur, cur + timedelta(days=6)
+        cur += timedelta(weeks=1)
+
 
 def _get_valid_event_ids(db: Session, active_groups: list[str] = None) -> set[str]:
     """Return event IDs that have at least one 'present' attendance record."""
@@ -566,6 +590,72 @@ def at_risk(
 
     result.sort(key=lambda x: -x["absent_streak"])
     return result
+
+
+@app.get("/api/pending-meetings")
+def pending_meetings(
+    group_id: list[str] = Query(default=[]),
+    db: Session = Depends(get_db),
+):
+    """
+    Return groups that are missing a weekly meeting registration for one or
+    more Mon–Sun weeks from their first event through last Sunday (UTC).
+
+    A week is considered 'registered' when ANY event row exists for the group
+    within that Monday–Sunday range (D-03). Full history per group (D-04/D-05).
+
+    Response: { count: int, groups: [ { id, name, missing_weeks: ["YYYY-Www", ...] } ] }
+    """
+    active_groups = [g for g in group_id if g and g != "all"]
+
+    # 1. Groups in scope
+    gq = db.query(Group)
+    if active_groups:
+        gq = gq.filter(Group.id.in_(active_groups))
+    groups = gq.all()
+    if not groups:
+        return {"count": 0, "groups": []}
+
+    # 2. First event date per group (one aggregation query)
+    feq = (
+        db.query(Event.group_id, func.min(Event.date).label("first_date"))
+        .group_by(Event.group_id)
+    )
+    if active_groups:
+        feq = feq.filter(Event.group_id.in_(active_groups))
+    first_dates: dict[str, datetime] = {r.group_id: r.first_date for r in feq.all()}
+
+    # 3. Reference Sunday (UTC, consistent with rest of codebase)
+    today = datetime.utcnow().date()
+    ref_sunday = _last_sunday(today)
+
+    # 4. Build covered set: (group_id, monday_of_week) for all event rows
+    eq = db.query(Event.group_id, Event.date)
+    if active_groups:
+        eq = eq.filter(Event.group_id.in_(active_groups))
+    covered: set[tuple[str, _date]] = set()
+    for row in eq.all():
+        d: _date = row.date.date() if hasattr(row.date, "date") else row.date
+        covered.add((row.group_id, _get_monday(d)))
+
+    # 5. Find missing weeks per group
+    result = []
+    for g in groups:
+        first_dt = first_dates.get(g.id)
+        if not first_dt:
+            continue  # group has no events at all — skip (A2 assumption)
+
+        missing: list[str] = []
+        for monday, _ in _all_weeks_since(first_dt, ref_sunday):
+            if (g.id, monday) not in covered:
+                # Format as ISO week label: YYYY-Www
+                iso_year, iso_week, _ = monday.isocalendar()
+                missing.append(f"{iso_year}-W{iso_week:02d}")
+
+        if missing:
+            result.append({"id": g.id, "name": g.name, "missing_weeks": missing})
+
+    return {"count": len(result), "groups": result}
 
 
 @app.get("/api/person-week-heatmap")
