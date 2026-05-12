@@ -1,8 +1,8 @@
 person_id,person_name,present_count,absent_count,total_events,attendance_rate
 61707f46aeede2001240ee71,Joel Sant Anna Dias,2,0,2,1.0
 61707f47aeede2001240f100,Simone Massini SantAnna Dias,1,0,1,1.0
-61707f47aeede2001240ef70,Marcilio Bancher de Oliveira,1,0,1,1.0
 61707f46aeede2001240eb89,Vitoria Entini Bancher,1,0,1,1.0
+61707f47aeede2001240ef70,Marcilio Bancher de Oliveira,1,0,1,1.0
 6500600114249c001aebfea4,Naythá Terrery De Souza Hass,107,15,122,0.877
 61707f46aeede2001240ed2b,Eduardo hass,106,18,124,0.8548
 61f2df90578b3700190c5c28,Raul Neves Soares,96,31,127,0.7559
@@ -22,8 +22,8 @@ person_id,person_name,present_count,absent_count,total_events,attendance_rate
 62064d094b47d100123f6d61,Fábio,64,57,121,0.5289
 64f7356db5b446001a38eeb3,Karin Hass,54,56,110,0.4909
 668027363e8bfe0012ca358d,Juan	Neves Soares,8,9,17,0.4706
-61f2dfc9a4eed00019c387dd,Renato Luiz Fahr,59,68,127,0.4646
 61f2dfdc578b3700190c5c2c,Lybia Fahr,59,68,127,0.4646
+61f2dfc9a4eed00019c387dd,Renato Luiz Fahr,59,68,127,0.4646
 6267120a7aacc50012c8f199,Leandro Albuquerque,51,62,113,0.4513
 61f2df72578b3700190c5c25,Camila Albuquerque,55,67,122,0.4508
 64417aeba22d340012359b99,Daniel Felipe  Santos,49,61,110,0.4455
@@ -34,15 +34,15 @@ person_id,person_name,present_count,absent_count,total_events,attendance_rate
 6924af69731afd001325eacc,criselen,7,10,17,0.4118
 6662eedb00ff6f0013037e70,Ariele Ramos,4,8,12,0.3333
 6924af480f3aaf00120d0ddd,carol,5,12,17,0.2941
-62a9df6c6d627500123fb726,Vera,2,5,7,0.2857
 62a9df5b1732d7001329af28,Tatiane,2,5,7,0.2857
+62a9df6c6d627500123fb726,Vera,2,5,7,0.2857
 6924af8a0f3aaf00120d0e25,thiago,1,3,4,0.25
 6924afa0731afd001325eb75,Tamires,1,3,4,0.25
 69bd2c5d38c4560013acf89d,Mae da Ju,2,7,9,0.2222
 683dea64285a79001326682a,stefani,4,15,19,0.2105
 61f3e48e578b3700190c6062,Vinícius Martins,2,8,10,0.2
-6813dc97ab64fb0013c8c3d3,Priscila,4,16,20,0.2
 6813dd42dd37f30012d0945c,Bruno,4,16,20,0.2
+6813dc97ab64fb0013c8c3d3,Priscila,4,16,20,0.2
 683dea4f285a7900132666ea,pedro,6,24,30,0.2
 69d8e6a9d101ea0014896f0a,Paloma,1,4,5,0.2
 62bd6d551732d700135f0099,Filipe Lima,3,14,17,0.1765
@@ -52,7 +52,7 @@ person_id,person_name,present_count,absent_count,total_events,attendance_rate
 671bd38e7519cb0013afa3f9,Vasti,1,6,7,0.1429
 67af20bb34f3d500135252eb,Cristina,1,7,8,0.125
 67e69fee5820870013b9a3d6,patricia,1,7,8,0.125
-68c74317c243d3001333f47a,Jaqueline,1,7,8,0.125
 68c42020723c44001394b814,Kaio,1,7,8,0.125
+68c74317c243d3001333f47a,Jaqueline,1,7,8,0.125
 682e4365b6685a0012851316,Paula (esposa do Preto),2,16,18,0.1111
 682e434fb6685a00128512bd,Paulo (preto),2,16,18,0.1111
