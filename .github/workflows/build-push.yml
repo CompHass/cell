@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main
+    tags:
+      - 'v*.*.*'
   workflow_dispatch:
 
 env:
@@ -35,7 +37,7 @@ jobs:
           context: .
           file: ./Dockerfile.backend
           push: true
-          tags: ${{ env.IMAGE_NAME_BACKEND }}:latest, ${{ env.IMAGE_NAME_BACKEND }}:${{ github.sha }}
+          tags: ${{ env.IMAGE_NAME_BACKEND }}:latest, ${{ env.IMAGE_NAME_BACKEND }}:${{ github.sha }}, ${{ env.IMAGE_NAME_BACKEND }}:${{ github.ref_name }}
 
       - name: Build and push Frontend image
         uses: docker/build-push-action@v5
@@ -43,4 +45,4 @@ jobs:
           context: .
           file: ./Dockerfile.frontend
           push: true
-          tags: ${{ env.IMAGE_NAME_FRONTEND }}:latest, ${{ env.IMAGE_NAME_FRONTEND }}:${{ github.sha }}
+          tags: ${{ env.IMAGE_NAME_FRONTEND }}:latest, ${{ env.IMAGE_NAME_FRONTEND }}:${{ github.sha }}, ${{ env.IMAGE_NAME_FRONTEND }}:${{ github.ref_name }}
